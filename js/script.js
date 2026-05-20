@@ -1,10 +1,12 @@
-fetch("/components/header.html")
+const BASE_PATH = "/Proj_Joana/";
+
+fetch( BASE_PATH + "components/header.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("header").innerHTML = data;
   });
 
-fetch("/components/footer.html")
+fetch( BASE_PATH + "./components/footer.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
