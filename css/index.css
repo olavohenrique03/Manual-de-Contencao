@@ -5,8 +5,19 @@
 
 .hero .container h1 {
     color: var(--color-primary);
+    font-weight: 900;
 }
 
+.hero .container p {
+    white-space: pre-line;
+    margin-top: -16px;
+}
+
+@media (max-width: 425px) {
+    .hero .container p {
+        font-size: 12px;
+    }
+}
 
 /* Slides */
 .destaque {
@@ -53,14 +64,14 @@
     min-width: 80px;
 }
 
-.categorias li img {
+.categorias img {
     width: 100px;
     height: 100px;
     background-color: var(--color-surface);
     border-radius: 50%;
-    padding: 15px;
+    padding: 12px;
 
-    margin-top: -130px;
+    margin-top: -180px;
 
     /* transition: 0.3s ease; */
 }
@@ -70,8 +81,8 @@
 } */
 
 .categorias span {
-    margin-top: 10px;
-    font-weight: 700;
+    margin-top: -40px;
+    font-weight: 900;
     color: var(--color-primary);
     font-family: var(--font-subtitle);
 }
@@ -89,10 +100,11 @@
         height: 60px;
         padding: 10px;
 
-        margin-top: -110px;
+        margin-top: -180px;
     }
     .categorias span {
         font-size: 12px;
+        margin-top: -70px;
     }
 }
 
@@ -102,5 +114,25 @@
 .sobre {
     background-color: var(--color-surface);
     padding: 60px 20px;
+}
+
+.sobre .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sobre p {
+    max-width: 900px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+@media (max-width: 425px) {
+    .sobre p {
+        font-size: 12px;
+    }
 }
 
