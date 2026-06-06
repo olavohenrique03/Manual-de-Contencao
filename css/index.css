@@ -1,6 +1,17 @@
 /* Hero (Descrição brevia) */
 .hero {
     padding: 80px 0;
+
+    background-image: url(/assets/img/imagemIA.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .hero .container h1 {
@@ -9,24 +20,15 @@
 }
 
 .hero .container p {
-    white-space: pre-line;
-    margin-top: -16px;
-}
-
-@media (max-width: 425px) {
-    .hero .container p {
-        font-size: 12px;
-    }
+    max-width: 50%;
+    /* white-space: pre-line; */
 }
 
 /* Slides */
 .destaque {
-    margin: 40px 0;
+    margin: 0 0 40px 0;
     background-color: var(--color-primary);
-}
-
-.destaque .container {
-    padding: 30px 30px 80px;
+    padding: 50px 30px 80px;
 }
 
 .carousel {
@@ -71,6 +73,7 @@
     border-radius: 50%;
     padding: 12px;
 
+    /* Puxa os ícones para cima, sobrepondo o carousel */
     margin-top: -180px;
 
     /* transition: 0.3s ease; */
@@ -86,28 +89,6 @@
     color: var(--color-primary);
     font-family: var(--font-subtitle);
 }
-
-@media (max-width: 425px) {
-    .categorias ul {
-        justify-content: space-evenly;
-        gap: 10px;
-    }
-    .categorias li {
-        min-width: 10px;
-    }
-    .categorias li img {
-        width: 60px;
-        height: 60px;
-        padding: 10px;
-
-        margin-top: -180px;
-    }
-    .categorias span {
-        font-size: 12px;
-        margin-top: -70px;
-    }
-}
-
 
 
 /* Sobre */
@@ -131,8 +112,12 @@
 }
 
 @media (max-width: 425px) {
-    .sobre p {
-        font-size: 12px;
-    }
-}
+    .hero .container p { font-size: 12px; }
 
+    .categorias ul { gap: 10px; }
+    .categorias li { min-width: 10px; }
+    .categorias li img { width: 60px; height: 60px; padding: 10px; margin-top: -180px; }
+    .categorias span { font-size: 12px; margin-top: -70px; }
+
+    .sobre p { font-size: 12px; }
+}

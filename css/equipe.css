@@ -13,6 +13,7 @@
 
 .hero-equipe h1 {
     font-size: 90px;
+    font-weight: 700;
     color: var(--color-primary)
 }
 
@@ -60,7 +61,10 @@
 
 .orientacao__descricao {
     flex: 0 0 45%;
-    text-align: right; /* ou left para ficar alinha na parede */
+    max-width: 900px;
+    /* line-height: 1.2; */
+    margin-bottom: 24px;
+    text-align: justify;
 }
 
 /* Orientação / Colaboração*/
@@ -81,9 +85,9 @@
 
 .instituicoes__card {
 
-    display: flex;          /* ← adicionar */
-    align-items: center;    /* ← centraliza verticalmente */
-    gap: 12px;              /* ← espaço entre ícone e texto */
+    display: flex;          
+    align-items: center;    
+    gap: 12px;              
 
     background-color: var(--color-surface);
     margin: 20px 30px 20px 0;
