@@ -1,6 +1,6 @@
 const scriptPath = document.currentScript?.src || '';
 const BASE_PATH = scriptPath.includes('github.io') 
-  ? '/Proj_Joana/' 
+  ? '/Manual-de-Contencao/' 
   : '/';
 
 // Expor BASE_PATH globalmente
