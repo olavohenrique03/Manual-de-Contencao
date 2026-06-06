@@ -112,7 +112,7 @@
 }
 
 @media (max-width: 425px) {
-    .hero .container p { font-size: 12px; }
+    .hero .container p { font-size: 11px; max-width: 100%;}
 
     .categorias ul { gap: 10px; }
     .categorias li { min-width: 10px; }
