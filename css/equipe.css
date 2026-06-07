@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     
-    padding: 60px 0;
+    padding: 60px 10px;
 }
 
 .hero-equipe h1 {
@@ -125,4 +125,45 @@
 
 .instituicoes__nome {
     padding-left: 8px;
+}
+
+
+@media (max-width: 768px) {
+    .realizacao .realizacao__lista { font-size: 14px; }
+
+    .orientacao .orientacao__lista { font-size: 14px; }
+}
+
+@media (max-width: 425px) {
+
+    .hero-equipe h1 { font-size: 70px }
+
+    .realizacao h2 {margin-bottom: -6px; font-size: 22px;}
+    .orientacao h2, .colaboracao h2 { margin-bottom: 18px; font-size: 22px;}  
+    .instituicoes h2 { margin-bottom: 12px;} 
+
+    .realizacao .realizacao__lista { font-size: 12px; }
+    .realizacao__nome {margin: 26px 0 2px; }
+
+    .realizacao__lista li,
+    .orientacao__lista li { display: flex; flex-direction: column; }
+
+    .orientacao .orientacao__lista { font-size: 12px; }
+
+    .instituicoes .instituicoes__card {
+        gap: 2px;  
+
+        margin: 20px 16px 20px 0;
+        padding: 10px 26px 10px 10px;
+        border-radius: 30px;
+    }
+    .instituicoes .instituicoes__link {width: 150px;}
+    .instituicoes .instituicoes__logo {
+        height: 32px;
+        width: 32px;
+        min-width: 32px;
+    }
+    .instituicoes .instituicoes__nome { font-size: 12px; padding-left: 2px}
+    
+
 }
