@@ -1,4 +1,4 @@
-Adiconar CSS e mamiferos
+## Ajustes
 
-Pesquisar para adiconar o site ao ar
-
+- Ajustar Navbar para abrir na lateral (Mobile)
+abaixo de 992px

@@ -1,7 +1,8 @@
 :root {
   /* BASE (neutros) */
   --color-text: #3b3b3b;
-  --color-background: #f1e9e9;
+  --color-background: #F7F4EA;
+  --color-white: #f1e9e9;
 
   /* BRAND (identidade) */
   --color-primary: #103523;
