@@ -10,7 +10,8 @@
 
   /* UI (interface) */
   --color-accent: #DBE096;
-  --color-surface: #F7F4EA;
+  --color-surface: #f1ebd9;
+  /* --color-surface: #F7F4EA; */
 }
 
 :root {

@@ -1,3 +1,7 @@
+body {
+    background-color: var(--color-background);
+}
+
 /* Tema espécies */
 .specie-name {
     color: var(--color-primary);
@@ -31,11 +35,15 @@
 }
 
 .animais-menu__item:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border-radius: 10%;
 }
 
 .animais-menu__item.ativo {
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    border-radius: 10%;
 }
 
 
@@ -55,6 +63,7 @@
 .conteudo__titulo {
     text-align: center;
     font-size: 18px;
+    font-weight: bold;
     color: var(--color-primary);
     margin-bottom: 18px;
 }
@@ -63,6 +72,7 @@
     display: flex;
     width: 100%;
     gap: 10px;
+    font-weight: bold;
 }
 
 .conteudo__materiais,

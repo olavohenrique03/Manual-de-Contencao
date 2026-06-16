@@ -1,3 +1,7 @@
+body {
+    background-color: var(--color-background);
+}
+
 /* Equipe */
 .hero-equipe {
     background-color: var(--color-surface);
@@ -31,32 +35,36 @@
 }
 
 .realizacao h2,
-.orientacao h2 {
+.orientacao h2,
+.colaboracao h2 {
     margin-bottom: 18px;
 }
 
 .realizacao__lista,
-.orientacao__lista {
+.orientacao__lista,
+.colaboracao__lista {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 .realizacao__lista li,
-.orientacao__lista li {
+.orientacao__lista li,
+.colaboracao__lista li {
     display: flex;
     justify-content: space-between;
 }
 
 .realizacao__nome,
-.orientacao__nome {
-    flex: 0 0 40%; /* ocupa 40% fixo */
+.orientacao__nome,
+.colaboracao__nome {
+    flex: 0 0 40%; 
     margin-bottom: 8px;
 }
 
 .realizacao__descricao,
 .orientacao__descricao {
-    flex: 0 0 55%; /* ocupa 55% fixo */
+    flex: 0 0 55%;
     
 }
 
@@ -64,14 +72,12 @@
 .realizacao__descricao {
     flex: 0 0 45%;
     max-width: 900px;
-    /* line-height: 1.2; */
     text-align: justify;
 }
 
 .orientacao__descricao {
     flex: 0 0 45%;
     max-width: 900px;
-    /* line-height: 1.2; */
     margin-bottom: 24px;
     text-align: justify;
 }
@@ -127,11 +133,29 @@
     padding-left: 8px;
 }
 
+@media (max-width: 1024px) {
+    .realizacao__descricao,
+    .orientacao__descricao {
+        flex: 0 0 50%; 
+        
+    }
+}
 
 @media (max-width: 768px) {
     .realizacao .realizacao__lista { font-size: 14px; }
 
     .orientacao .orientacao__lista { font-size: 14px; }
+    
+    .realizacao__nome,
+    .orientacao__nome,
+    .colaboracao__nome {margin: 12px 0 2px; font-weight: bold;}
+    
+    
+    .realizacao__lista li,
+    .orientacao__lista li { display: flex; flex-direction: column; }
+
+    .instituicoes__container { display: flex; flex-direction: column; }
+    .instituicoes__card { margin-bottom: 5px; }
 }
 
 @media (max-width: 425px) {
@@ -153,7 +177,7 @@
     .instituicoes .instituicoes__card {
         gap: 2px;  
 
-        margin: 20px 16px 20px 0;
+        margin: 20px 16px 5px 0;
         padding: 10px 26px 10px 10px;
         border-radius: 30px;
     }
