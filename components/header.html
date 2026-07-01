@@ -3,7 +3,13 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
 
-                <a class="navbar-brand" href="./index.html">Logo</a>
+                <a class="navbar-brand" href="./index.html">
+                    <!-- Logo principal: visível acima de 992px -->
+                    <img class="d-none d-lg-block" src="/assets/img/logo.png" alt="WildGuide">
+                    
+                    <!-- Logo menor: visível abaixo de 992px -->
+                    <img class="d-lg-none" src="/assets/img/logo2.png" alt="WildGuide">
+                </a>
 
                 <button class="navbar-toggler" type="button" 
                     data-bs-toggle="offcanvas" 
@@ -22,7 +28,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Manual</a>
+                            <a class="nav-link" href="./pages/manual.html">Manual</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -53,7 +59,9 @@
                 <!-- Menu lateral mobile — fica fora do container principal - 992px -->
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="menuLateralLabel">Logo Secundária</h5>
+
+                        <h5 class="offcanvas-logo" id="menuLateralLabel"><img src="/assets/img/logo.png" alt=""></h5>
+
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
                     </div>
                     <div class="offcanvas-body">
@@ -62,7 +70,7 @@
                                 <a class="nav-link" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Manual</a>
+                                <a class="nav-link" href="./pages/manual.html">Manual</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
