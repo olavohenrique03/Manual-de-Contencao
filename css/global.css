@@ -20,3 +20,6 @@
     --font-text: 'Inter', sans-serif;
 }
 
+body {
+    background-color: var(--color-background);
+}
