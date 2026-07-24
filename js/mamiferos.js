@@ -80,3 +80,23 @@ document.querySelectorAll('.animais-menu__item').forEach(item => {
 
 //Carrega o primeiro animal por padrão
 carregarAnimal('coelho')
+
+// ----------------------------------------------------------- //
+
+// Setas do menu de animais
+const lista = document.querySelector('.animais-menu__lista');
+const btnPrev = document.querySelector('.animais-menu__seta--prev');
+const btnNext = document.querySelector('.animais-menu__seta--next');
+
+// Quanto desloca por clique (em px)
+const SCROLL_PASSO = 150;
+
+if (btnPrev && btnNext && lista) {
+    btnPrev.addEventListener('click', () => {
+        lista.scrollLeft -= SCROLL_PASSO;
+    });
+
+    btnNext.addEventListener('click', () => {
+        lista.scrollLeft += SCROLL_PASSO;
+    });
+}

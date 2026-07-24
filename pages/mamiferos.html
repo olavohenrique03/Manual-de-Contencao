@@ -28,15 +28,26 @@
         <!-- Menu de animais -->
         <section class="animais-menu">
             <div class="container">
-                <ul class="animais-menu__lista">
-                    <li class="animais-menu__item ativo" data-animal="coelho">Coelho</li>
-                    <li class="animais-menu__item" data-animal="porquinho">Porquinho-da-Índia</li>
-                    <li class="animais-menu__item" data-animal="chinchila">Chinchila</li>
-                    <li class="animais-menu__item" data-animal="hamster">Hamster</li>
-                    <li class="animais-menu__item" data-animal="twister">Twister</li>
-                    <li class="animais-menu__item" data-animal="furao">Furão</li>
-                    <li class="animais-menu__item" data-animal="ourico">Ouriço</li>
-                </ul>
+
+                <div class="animais-menu__wrapper">
+
+                    <!-- Seta esquerda (só aparece no mobile) -->
+                    <button class="animais-menu__seta animais-menu__seta--prev" aria-label="Anterior">&#8249;</button>
+
+                    <ul class="animais-menu__lista">
+                        <li class="animais-menu__item ativo" data-animal="coelho">Coelho</li>
+                        <li class="animais-menu__item" data-animal="porquinho">Porquinho-da-Índia</li>
+                        <li class="animais-menu__item" data-animal="chinchila">Chinchila</li>
+                        <li class="animais-menu__item" data-animal="hamster">Hamster</li>
+                        <li class="animais-menu__item" data-animal="twister">Twister</li>
+                        <li class="animais-menu__item" data-animal="furao">Furão</li>
+                        <li class="animais-menu__item" data-animal="ourico">Ouriço</li>
+                    </ul>
+
+                    <!-- Seta direita (só aparece no mobile) -->
+                    <button class="animais-menu__seta animais-menu__seta--next" aria-label="Próximo">&#8250;</button>
+                    
+                </div>
             </div>
         </section>
 
