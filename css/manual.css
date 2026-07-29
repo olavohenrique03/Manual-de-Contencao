@@ -1,0 +1,161 @@
+.destaque {
+    margin-top: 10px;
+}
+
+
+.manual__layout {
+    display: flex;
+    gap: 40px;
+    padding: 40px 0;
+    align-items: flex-start; /* sidebar não estica até o fim */
+}
+
+.manual__conteudo {
+    flex: 1; /* ocupa o espaço restante */
+}
+
+
+.titulo-manual__texto {
+    max-width: 90%;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+@media (max-width: 768px) {
+    .titulo-manual__texto {
+        max-width: 100%;
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 425px) {
+    .titulo-manual__texto {
+        font-size: 22px;
+    }
+}
+
+
+.autores {
+    margin-bottom: 30px;
+}
+
+.autores__lista {
+    padding-left: 1px;
+}
+
+.autores__item {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px ;
+}
+
+.autores__nome {
+    font-weight: bold;
+    margin-bottom: -2px;
+}
+
+@media (max-width: 768px) {
+    .autores__item,
+    .palavras-chave,
+    .resumo,
+    .referencias {
+        font-size: 14px;
+    }
+
+    .palavras-chave__titulo,
+    .resumo__titulo,
+    .referencias__titulo {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 425px) {
+    .autores__item,
+    .palavras-chave,
+    .resumo,
+    .referencias {
+        font-size: 12px;
+    }
+
+    .palavras-chave__titulo,
+    .resumo__titulo,
+    .referencias__titulo {
+        font-size: 20px;
+    }
+}
+
+
+.manual__sidebar {
+    width: 200px;
+    min-width: 200px; /* não encolhe */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Blocos da sidebar */
+.sidebar__bloco {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.sidebar__titulo {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sidebar__lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar__link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar__link--ativo {
+    font-weight: 700;
+}
+
+/* Botão PDF */
+.sidebar__pdf {
+    display: block;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.sidebar__pdf:hover {
+    opacity: 0.85;
+}
+
+.sidebar__data {
+    font-size: 14px;
+    color: var(--color-primary);
+}
+
+/* Responsivo — sidebar vai para baixo do conteúdo no mobile */
+@media (max-width: 768px) {
+    .manual__layout {
+        flex-direction: column;
+    }
+
+    .manual__sidebar {
+        width: 100%;
+    }
+}
