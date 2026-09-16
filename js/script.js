@@ -33,3 +33,9 @@ fetch(BASE_PATH + "components/footer.html")
     document.getElementById("footer").innerHTML = data;
     fixRelativePaths("#footer");
   });
+
+fetch(BASE_PATH + "components/modal-pdf.html")
+.then(response => response.text())
+.then(data => {
+  document.getElementById("modal-container").innerHTML = data;
+});

@@ -1,0 +1,46 @@
+.modal-content {
+    border: solid 2px var(--color-primary);
+    background-color: var(--color-surface);
+}
+
+.modal-title {
+    color: var(--color-primary);
+}
+
+.btn-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 94px;
+    height: 40px;
+
+    background-color: var(--color-primary-light);
+    text-decoration: none;
+    color: var(--color-white);
+    border: solid 1px ;
+    border-radius: 20px;
+}
+
+.btn-download:hover {
+    background-color: var(--color-primary);
+}
+
+.btn-toclose {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 90px;
+    height: 40px;
+
+    background-color: var(--color-gray);
+    text-decoration: none;
+    color: var(--color-white);
+    border: solid 1px ;
+    border-radius: 20px;
+}
+
+.btn-toclose:hover {
+    background-color: #535353;
+}

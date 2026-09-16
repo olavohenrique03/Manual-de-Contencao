@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/modal-pdf.css">
     <link rel="stylesheet" href="../css/especies.css">
 
     <title>Mamíferos</title>
@@ -61,7 +62,7 @@
         <!-- Vídeo — preenchido pelo JS -->
         <section class="video-secao">
             <div class="container">
-                <video class="video-secao__player" src="#"></video>
+                <iframe class="video-secao__player" src="#"></iframe>
             </div>
         </section>
 
@@ -70,16 +71,27 @@
             <div class="container">
                 <h2 class="conteudo__titulo"></h2>
                 <div class="conteudo__colunas">
-                    <div class="conteudo__materiais"></div>
-                    <div class="conteudo__procedimentos"></div>
+
+                    <div class="conteudo__materiais">
+                        <p>Materiais</p>
+                        <ul class="conteudo__materiais-lista"></ul>
+                    </div>
+
+                    <div class="conteudo__procedimentos">
+                        <p>Procedimentos</p>
+                        <ul class="conteudo__procedimentos-lista"></ul>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Rodapé -->
+     <!-- Rodapé -->
      <footer id="footer"></footer>
+
+     <!-- Modal -->
+     <div id="modal-container"></div>
 
      <!-- JS Bootstrap -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

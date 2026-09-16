@@ -100,6 +100,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        
 
         background: var(--color-surface);
         border: 2px solid var(--color-primary);
@@ -110,7 +111,7 @@ body {
         height: 32px;
         min-width: 32px; 
 
-        font-size: 20px;
+        font-size: 26px;
         cursor: pointer;
         transition: 0.2s;
     }
@@ -135,9 +136,23 @@ body {
 
 
 /* Vídeo */
-.video-secao {
+.video-secao .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--color-primary);
+    height: 360px;
 }
+
+.video-secao .video-secao__player {
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 
 /* Materiais e Procedimentos */
 .conteudo__titulo {
