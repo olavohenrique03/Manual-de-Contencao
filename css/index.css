@@ -43,12 +43,13 @@ body {
 
 /* Categorias */
 .categorias {
-    background-color: var(--color-background);
-    padding: 20px 0 40px;
     position: relative;
+    z-index: 2;
 
-    /* Sobreposição intencional ao carousel acima */
-    /* margin-top: -38px; */
+    background-color: var(--color-background);
+    margin-top: 58px;
+
+    padding: 0 0 40px;
 }
 
 .categorias ul {
@@ -131,6 +132,7 @@ body {
 }
 
 
+/* Objetivo e Equipe */
 .objetivo,
 .equipe {
     padding: 30px 20px 60px;
@@ -140,13 +142,16 @@ body {
 .objetivo .container,
 .equipe .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    gap: 60px;
 }
 
+/* Texto */
 .objetivo .informações-esquerda,
 .equipe .informações-direita {
-    max-width: 50%;
+    flex: 1;
+    max-width: 550px;
 }
 
 .objetivo .informações-esquerda h2,
@@ -158,30 +163,32 @@ body {
 
 .objetivo .informações-esquerda p,
 .equipe .informações-direita p {
-    max-width: 100%;
+    width: 100%;
     line-height: 1.8;
     margin-bottom: 24px;
     text-align: justify;
 }
 
+/* Botões */
 .objetivo .informações-esquerda button,
 .equipe .informações-direita button {
     background-color: var(--color-accent);
-    
+
     padding: 5px 10px;
 
     border: none;
     border-radius: 15px;
 
-    transition: color 0.3s ease, background-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .objetivo .informações-esquerda button:hover,
 .objetivo .informações-esquerda button:focus-visible,
-.objetivo .informações-esquerda button:active {
-    color: var(--color-primary);
-    background-color: var(--color-accent);
-    border-radius: 15px;
+.equipe .informações-direita button:hover,
+.equipe .informações-direita button:focus-visible {
+    transform: scale(1.03);
 }
 
 .objetivo .informações-esquerda a,
@@ -193,23 +200,62 @@ body {
     font-size: 18px;
 }
 
+/* Imagens */
 .objetivo .imagem-direita,
 .equipe .imagem-esquerda {
+    flex: 0 1 500px;
+    width: 100%;
+    max-width: 500px;
     height: 300px;
-    width: 500px;
+
     background-color: var(--color-primary);
 }
-
 
 @media (max-width: 768px) {
     .hero .container p { font-size: 14px; max-width: 70%;}
 
     .categorias ul { gap: 10px; }
     .categorias li { min-width: 20px; }
-    .categorias li img { width: 90px; height: 90px; padding: 10px; margin-top: -180px; }
-    .categorias span { font-size: 14px; margin-top: -50px; }
+    .categorias li img { width: 90px; height: 90px; padding: 10px; margin-top: 0px; }
+    .categorias span { font-size: 14px; margin-top: -10px; }
 
     .sobre p { font-size: 14px; }
+
+    .objetivo,
+    .equipe {
+        margin: 60px 0;
+        padding: 30px 20px;
+    }
+
+    .objetivo .container,
+    .equipe .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+
+    .objetivo .informações-esquerda,
+    .equipe .informações-direita {
+        max-width: 100%;
+    }
+
+    /* Na equipe o texto precisa aparecer antes da imagem */
+    .equipe .informações-direita {
+        order: 1;
+    }
+
+    .equipe .imagem-esquerda {
+        order: 2;
+    }
+
+    .objetivo .imagem-direita,
+    .equipe .imagem-esquerda {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
 }
 
 @media (max-width: 425px) {
@@ -220,12 +266,53 @@ body {
     .destaque { margin: 0 0 10px 0; }
     .destaque .container { padding: 0; }
 
-    .categorias ul { gap: 4px; }
-    .categorias li { min-width: 10px; }
-    .categorias li img { width: 64px; height: 64px; padding: 10px; margin-top: -180px; }
-    .categorias span { font-size: 12px; margin-top: -70px; }
+     .categorias {
+        margin-top: -32px;
+        padding-bottom: 24px;
+    }
+    
+
+    .categorias .container {
+        padding-inline: 8px;
+    }
+
+    .categorias ul {
+        gap: 4px;
+    }
+
+    .categorias img {
+        width: 50px;
+        height: 50px;
+        padding: 7px;
+    }
+
+    .categorias span {
+        font-size: 11px;
+    }
 
     .sobre { padding: 10px 16px; }
     .sobre p { font-size: 12px; }
+
+    .objetivo,
+    .equipe {
+        margin: 40px 0;
+        padding: 24px 16px;
+    }
+
+    .objetivo .container,
+    .equipe .container {
+        gap: 24px;
+    }
+
+    .objetivo .informações-esquerda p,
+    .equipe .informações-direita p {
+        font-size: 12px;
+    }
+
+    .objetivo .informações-esquerda a,
+    .equipe .informações-direita a {
+        font-size: 16px;
+    }
+
 }
 
