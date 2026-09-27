@@ -1,17 +1,132 @@
 .footer {
     background-color: var(--color-primary);
     width: 100%;
-    height: 100px;
     margin-top: 22px;
+    color: var(--color-background);
 }
 
-.footer .container {
+.elements {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.2fr) repeat(2, minmax(120px, 0.8fr)) auto;
+    align-items: start;
+    gap: 32px;
+    padding: 32px 0 28px;
+}
+
+.image-logo {
+    display: flex;
+    align-items: flex-start;
+}
+
+.elements .image-logo img {
+    display: block;
+    width: min(100%, 210px);
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.list-navegation {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.list-navegation h2,
+.list-species h2 {
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.list-navegation ul,
+.list-species ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.list-navegation-link {
+    text-decoration: none;
+    color: var(--color-background)
+}
+
+.list-navegation-link:hover {
+    color: var(--color-accent);
+}
+
+.icons-network {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.icons img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s ease;
+}
+
+.icons:hover img,
+.icons:focus-visible img {
+    opacity: 0.7;
+}
+
+.footer-botton {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-top: solid 1px var(--color-gray);
+    color: var(--color-background);
+    padding: 18px 0;
+
+    font-size: 12px;
 }
 
-.footer .container p {
-    color: var(--color-background);
-    padding-top: 40px;
+.footer-botton p {
+    margin: 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .elements {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        padding-block: 28px;
+    }
+
+    .social {
+        grid-column: 1 / -1;
+    }
+
+    .social {
+        justify-content: center;
+    }
+
+    .image-logo img {
+        width: min(100%, 180px);
+    }
+}
+
+@media (max-width: 480px) {
+    .elements {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .image-logo,
+    .social {
+        grid-column: 1;
+        justify-content: center;
+    }
+
+    .list-navegation,
+    .list-species {
+        align-items: center;
+        margin: 12px 0;
+    }
+
 }
