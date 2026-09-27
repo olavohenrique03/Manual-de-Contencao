@@ -6,7 +6,7 @@ body {
 .hero {
     padding: 80px 0;
 
-    background-image: url(../assets/img/imagemIA.png);
+    background-image: url(../assets/images/imagemIA.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -44,11 +44,11 @@ body {
 /* Categorias */
 .categorias {
     background-color: var(--color-background);
-    padding: 80px 0 40px;
+    padding: 20px 0 40px;
     position: relative;
 
     /* Sobreposição intencional ao carousel acima */
-    margin-top: -38px;
+    /* margin-top: -38px; */
 }
 
 .categorias ul {
@@ -63,42 +63,51 @@ body {
 
 .categorias li {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     text-align: center;
-
     min-width: 80px;
 }
 
+.categorias a {
+    position: relative;      /* referência pro ícone posicionado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+}
+
 .categorias img {
+    position: absolute;      /* sai do fluxo — nunca mais empurra o texto */
+    top: -104px;
+    left: 50%;
+    transform: translateX(-50%);
+
     width: 100px;
     height: 100px;
     background-color: var(--color-background);
     border-radius: 50%;
     padding: 12px;
 
-    /* Puxa os ícones para cima, sobrepondo o carousel */
-    margin-top: -180px;
-
-    /* transition: 0.3s ease; */
+    transition: transform 0.3s ease;
 }
 
-/* .categorias li:hover img {
-    transform: scale(1.08);
-} */
+.categorias a:hover img,
+.categorias a:focus-visible img {
+    transform: translateX(-50%) scale(1.08); /* precisa repetir o translateX, senão descentraliza */
+}
 
 .categorias span {
-    margin-top: -40px;
     font-weight: 900;
-    color: var(--color-primary);
     font-family: var(--font-subtitle);
+    color: var(--color-primary);
 }
-
 
 /* Sobre */
 .sobre {
-    background-color: var(--color-background);
-    padding: 20px 20px 60px;
+    background-color: var(--color-surface);
+    padding: 30px 20px 30px;
 }
 
 .sobre .container {
@@ -108,12 +117,89 @@ body {
     flex-direction: column;
 }
 
+.sobre h2 {
+    color: var(--color-primary);
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+
 .sobre p {
     max-width: 900px;
     line-height: 1.8;
     margin-bottom: 24px;
     text-align: justify;
 }
+
+
+.objetivo,
+.equipe {
+    padding: 30px 20px 60px;
+    margin: 100px 0;
+}
+
+.objetivo .container,
+.equipe .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.objetivo .informações-esquerda,
+.equipe .informações-direita {
+    max-width: 50%;
+}
+
+.objetivo .informações-esquerda h2,
+.equipe .informações-direita h2 {
+    color: var(--color-primary);
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+
+.objetivo .informações-esquerda p,
+.equipe .informações-direita p {
+    max-width: 100%;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.objetivo .informações-esquerda button,
+.equipe .informações-direita button {
+    background-color: var(--color-accent);
+    
+    padding: 5px 10px;
+
+    border: none;
+    border-radius: 15px;
+
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.objetivo .informações-esquerda button:hover,
+.objetivo .informações-esquerda button:focus-visible,
+.objetivo .informações-esquerda button:active {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    border-radius: 15px;
+}
+
+.objetivo .informações-esquerda a,
+.equipe .informações-direita a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-family: var(--font-subtitle);
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.objetivo .imagem-direita,
+.equipe .imagem-esquerda {
+    height: 300px;
+    width: 500px;
+    background-color: var(--color-primary);
+}
+
 
 @media (max-width: 768px) {
     .hero .container p { font-size: 14px; max-width: 70%;}

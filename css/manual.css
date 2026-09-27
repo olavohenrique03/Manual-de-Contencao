@@ -2,7 +2,6 @@
     margin-top: 10px;
 }
 
-
 .manual__layout {
     display: flex;
     gap: 40px;
@@ -18,8 +17,8 @@
 .titulo-manual__texto {
     max-width: 90%;
     font-size: 30px;
-    text-align: center;
-    margin-bottom: 22px;
+    /* text-align: center; */
+    margin-bottom: 50px;
 }
 
 @media (max-width: 768px) {
@@ -37,7 +36,7 @@
 
 
 .autores {
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 
 .autores__lista {
@@ -54,6 +53,12 @@
 .autores__nome {
     font-weight: bold;
     margin-bottom: -2px;
+}
+
+.palavras-chave,
+.resumo,
+.referencias {
+    margin: 40px 0;
 }
 
 @media (max-width: 768px) {

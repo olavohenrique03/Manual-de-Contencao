@@ -16,21 +16,54 @@
     display: block;
 }
 
+.header .nav-link {
+    font-family: var(--font-subtitle);
+    font-weight: 900;
+    color: var(--color-primary);
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.header .nav-link:hover,
+.header .nav-link:focus-visible,
+.header .nav-link:active {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    border-radius: 15px;
+}
+
+.header .navbar-nav {
+    gap: 20px;
+}
+
+.header .dropdown-menu {
+    border-radius: 15px;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.header .dropdown-item {
+    font-family: var(--font-subtitle);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-primary);
+    transition: 0.2s;
+}
+
+.header .dropdown-item:hover,
+.header .dropdown-item:focus-visible {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+}
+
 @media (max-width: 992px) {
     .navbar-brand img {
         height: 90px;
     }
 }
 
-/* Garante que o botão hamburguer só aparece abaixo de 992px */
-.navbar-toggler {
-    display: none;
-}
-
 @media (max-width: 992px) {
-    .navbar-toggler {
-        display: block;
-    }
 
     /* Estilo do painel lateral */
     .offcanvas {
@@ -38,12 +71,16 @@
         max-width: 280px;
     }
 
-    .offcanvas-logo img{
+    .offcanvas-logo {
         height: 66px;
         width: auto;
         object-fit: contain;
         display: block;
     }   
+
+    .offcanvas-hidden {
+        display: none;  
+    }
 
     /* Links dentro do menu lateral */
     .offcanvas-body .nav-link {
@@ -67,53 +104,4 @@
     }
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    /* margin-bottom: 10px; */
-}
 
-.navbar-brand {
-    font-weight: 700;
-    font-family: var(--font-title);
-}
-
-.header .nav-link {
-    font-family: var(--font-subtitle);
-    font-weight: 900;
-    color: var(--color-primary);
-    padding: 5px 10px;
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.header .nav-link:hover,
-.header .nav-link:focus-visible,
-.header .nav-link:active {
-    color: var(--color-primary);
-    background-color: var(--color-accent);
-    border-radius: 15px;
-}
-
-.navbar-nav {
-    gap: 20px;
-}
-
-.dropdown-menu {
-    border-radius: 15px;
-    padding: 10px 0;
-    background-color: #fff;
-}
-
-.dropdown-item {
-    font-family: var(--font-subtitle);
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--color-primary);
-    transition: 0.2s;
-}
-
-.dropdown-item:hover {
-    background-color: var(--color-accent);
-}

@@ -94,6 +94,10 @@ body {
 }
 
 /* Instituições */
+.instituicoes {
+    margin-top: 40px;
+}
+
 .instituicoes__container {
     display: flex;
 }
@@ -189,5 +193,4 @@ body {
     }
     .instituicoes .instituicoes__nome { font-size: 12px; padding-left: 2px}
     
-
 }

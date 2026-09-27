@@ -13,10 +13,25 @@ function fixRelativePaths(containerSelector) {
 
       if (value.startsWith("./")) {
         el.setAttribute(attr, BASE_PATH + value.slice(2));
-      } else if (value.startsWith("../")) {
-        el.setAttribute(attr, BASE_PATH + value.slice(3));
-      }
+      } 
     });
+  });
+}
+
+function marcarLinkAtivo() {
+    const arquivoAtual = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll("#header .nav-link, #header .dropdown-item").forEach(link => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+
+    const arquivoDoLink = href.split("/").pop();
+
+    if (arquivoDoLink === arquivoAtual) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
 }
 
@@ -25,17 +40,25 @@ fetch(BASE_PATH + "components/header.html")
   .then(data => {
     document.getElementById("header").innerHTML = data;
     fixRelativePaths("#header");
-  });
+    marcarLinkAtivo();
+  }).catch(erro => {
+    console.error("Não foi possível carregar o header:", erro);
+  })
 
 fetch(BASE_PATH + "components/footer.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
     fixRelativePaths("#footer");
+  }).catch(erro => {
+    console.error("Não foi possível carregar o footer:", erro);
   });
 
 fetch(BASE_PATH + "components/modal-pdf.html")
-.then(response => response.text())
-.then(data => {
-  document.getElementById("modal-container").innerHTML = data;
-});
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("modal-container").innerHTML = data;
+  });
+
+
+
