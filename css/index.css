@@ -53,20 +53,21 @@ body {
 }
 
 .categorias ul {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: clamp(8px, 3vw, 28px); /* controla o espaço entre colunas */
+    justify-items: center;
     align-items: center;
-    gap: 36px;
 
     list-style: none;
     padding: 0;
 }
 
 .categorias li {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
-    min-width: 80px;
+    min-width: 0px;
 }
 
 .categorias a {
@@ -214,9 +215,9 @@ body {
 @media (max-width: 768px) {
     .hero .container p { font-size: 14px; max-width: 70%;}
 
-    .categorias ul { gap: 10px; }
+    .categorias ul { gap: 20px; }
     .categorias li { min-width: 20px; }
-    .categorias li img { width: 90px; height: 90px; padding: 10px; margin-top: 0px; }
+    .categorias img { width: 80px; height: 80px; padding: 10px; margin-top: 8px; }
     .categorias span { font-size: 14px; margin-top: -10px; }
 
     .sobre p { font-size: 14px; }
@@ -266,10 +267,7 @@ body {
     .destaque { margin: 0 0 10px 0; }
     .destaque .container { padding: 0; }
 
-     .categorias {
-        margin-top: -32px;
-        padding-bottom: 24px;
-    }
+    .categorias { margin-top: 70px; padding-bottom: 24px; }
     
 
     .categorias .container {
@@ -277,12 +275,12 @@ body {
     }
 
     .categorias ul {
-        gap: 4px;
+        gap: 20px;
     }
 
     .categorias img {
-        width: 50px;
-        height: 50px;
+        width: 64px;
+        height: 64px;
         padding: 7px;
     }
 
