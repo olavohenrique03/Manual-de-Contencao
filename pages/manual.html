@@ -21,44 +21,12 @@
     <header id="header"></header>
 
     <main>
-
-        <!-- Slides -->
-        <section class="destaque">
-            <div class="container">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="../assets/images/slides.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/images/slides.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="../assets/images/slides.png" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </section>
         
-        <!-- Layout de duas colunas -->
+        <!-- Conteúdo do manual -->
         <div class="container">
             <div class="manual__layout">
 
-                <!-- Coluna principal (esquerda) -->
+                <!-- Conteúdo principal -->
                 <div class="manual__conteudo">
 
                     <section class="titulo-manual">
@@ -67,6 +35,23 @@
                             do manejo de animais silvestres e exóticos mantidos como
                             pets: wild guide
                         </h1>
+                    </section>
+
+                    <section class="manual__informacoes" aria-label="Arquivos e informações da publicação">
+                        <div class="manual__info-bloco manual__arquivos">
+                            <h2 class="manual__info-titulo">Arquivos</h2>
+
+                            <!-- O arquivo manual.pdf será incluído/atualizado posteriormente. -->
+                            <a class="manual__arquivo-link" href="../assets/docs/manual.pdf" download>
+                                <span>Manual em PDF</span>
+                                <span class="manual__arquivo-tamanho">(— MB)</span>
+                            </a>
+                        </div>
+
+                        <div class="manual__info-bloco manual__publicacao">
+                            <h2 class="manual__info-titulo">Publicação</h2>
+                            <span class="manual__publicacao-data">00-00-2026</span>
+                        </div>
                     </section>
 
                     <section class="autores">
@@ -128,29 +113,6 @@
                     </section>
 
                 </div>
-
-                <!-- Sidebar (direita) -->
-                <aside class="manual__sidebar">
-
-                    <div class="sidebar__bloco">
-                        <h3 class="sidebar__titulo">Idioma</h3>
-                        <ul class="sidebar__lista">
-                            <li><a class="sidebar__link" href="#">English</a></li>
-                            <li><a class="sidebar__link sidebar__link--ativo" href="#">Português</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar__bloco">
-                        <a class="sidebar__pdf" href="../assets/docs/manual.pdf" download>PDF</a>
-                    </div>
-
-                    <div class="sidebar__bloco">
-                        <h3 class="sidebar__titulo">Publicado</h3>
-                        <span class="sidebar__data">00-00-2026</span>
-                    </div>
-
-                </aside>
-
             </div>
         </div>
         

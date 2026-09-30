@@ -54,11 +54,28 @@ fetch(BASE_PATH + "components/footer.html")
     console.error("Não foi possível carregar o footer:", erro);
   });
 
-fetch(BASE_PATH + "components/modal-pdf.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("modal-container").innerHTML = data;
-  });
+const modalContainer = document.getElementById("modal-container");
+
+if (modalContainer) {
+  fetch(BASE_PATH + "components/modal-pdf.html")
+    .then(response => response.text())
+    .then(data => {
+      modalContainer.innerHTML = data;
+    })
+    .catch(erro => {
+      console.error("Não foi possível carregar o modal de PDF:", erro);
+    });
+}
+
+// Enquanto os currículos ainda não possuem URL, evita o salto para o topo da página.
+// Ao substituir href="#" por uma URL real, o link passa a funcionar normalmente.
+document.addEventListener("click", event => {
+  const linkPendente = event.target.closest('a[data-curriculo-pendente="true"][href="#"]');
+
+  if (linkPendente) {
+    event.preventDefault();
+  }
+});
 
 
 

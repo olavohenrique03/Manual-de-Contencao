@@ -17,16 +17,17 @@ body {
 
 .hero-equipe h1 {
     font-size: 90px;
-    font-weight: 700;
+    font-family: var(--font-title);
+    font-weight: 900;
     color: var(--color-primary)
 }
 
-.hero-equipe img {
+/* .hero-equipe img {
     height: 160px;
     width: 200px;
 
     object-fit: contain;
-}
+} */
 
 /* Realização */
 .realizacao {
@@ -55,11 +56,40 @@ body {
     justify-content: space-between;
 }
 
-.realizacao__nome,
-.orientacao__nome,
+.realizacao__curriculo,
+.orientacao__curriculo,
 .colaboracao__nome {
-    flex: 0 0 40%; 
+    flex: 0 0 40%;
     margin-bottom: 8px;
+}
+
+.realizacao__nome,
+.orientacao__nome {
+    display: block;
+}
+
+.curriculo-link {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.curriculo-link:hover .realizacao__nome,
+.curriculo-link:hover .orientacao__nome,
+.curriculo-link:focus-visible .realizacao__nome,
+.curriculo-link:focus-visible .orientacao__nome {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.curriculo-link__hint {
+    display: block;
+    margin-top: 2px;
+
+    color: var(--color-primary-light);
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.8;
 }
 
 .realizacao__descricao,
@@ -150,13 +180,21 @@ body {
 
     .orientacao .orientacao__lista { font-size: 14px; }
     
-    .realizacao__nome,
-    .orientacao__nome,
+    .realizacao__curriculo,
+    .orientacao__curriculo,
     .colaboracao__nome {margin: 12px 0 2px; font-weight: bold;}
     
     
     .realizacao__lista li,
     .orientacao__lista li { display: flex; flex-direction: column; }
+
+    .realizacao__curriculo,
+    .orientacao__curriculo,
+    .realizacao__descricao,
+    .orientacao__descricao {
+        flex: none;
+        width: 100%;
+    }
 
     .instituicoes__container { display: flex; flex-direction: column; }
     .instituicoes__card { margin-bottom: 5px; }
@@ -171,7 +209,7 @@ body {
     .instituicoes h2 { margin-bottom: 12px;} 
 
     .realizacao .realizacao__lista { font-size: 12px; }
-    .realizacao__nome {margin: 26px 0 2px; }
+    .realizacao__curriculo {margin: 26px 0 2px; }
 
     .realizacao__lista li,
     .orientacao__lista li { display: flex; flex-direction: column; }

@@ -78,10 +78,6 @@
         display: block;
     }   
 
-    .offcanvas-hidden {
-        display: none;  
-    }
-
     /* Links dentro do menu lateral */
     .offcanvas-body .nav-link {
         font-family: var(--font-subtitle);
@@ -104,4 +100,27 @@
     }
 }
 
+/* Seletor de idioma */
+.header .nav-language__current {
+    font-weight: 700;
+    background-color: var(--color-surface);
+}
+
+.header .nav-language__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.header .nav-language__option:disabled {
+    color: var(--color-gray);
+    opacity: 0.75;
+}
+
+.header .nav-language__status {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-primary-light);
+}
 

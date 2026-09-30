@@ -3,37 +3,79 @@
 }
 
 .manual__layout {
-    display: flex;
-    gap: 40px;
     padding: 40px 0;
-    align-items: flex-start; /* sidebar não estica até o fim */
 }
 
 .manual__conteudo {
-    flex: 1; /* ocupa o espaço restante */
+    width: 100%;
 }
-
 
 .titulo-manual__texto {
     max-width: 90%;
+    margin-bottom: 24px;
+
+    color: var(--color-primary);
     font-size: 30px;
-    /* text-align: center; */
-    margin-bottom: 50px;
 }
 
-@media (max-width: 768px) {
-    .titulo-manual__texto {
-        max-width: 100%;
-        font-size: 26px;
-    }
+/* Arquivos e publicação — permanecem no topo em qualquer largura */
+.manual__informacoes {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+
+    margin-bottom: 36px;
 }
 
-@media (max-width: 425px) {
-    .titulo-manual__texto {
-        font-size: 22px;
-    }
+.manual__info-bloco {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 16px;
 }
 
+.manual__arquivos {
+    flex: 1;
+}
+
+.manual__publicacao {
+    flex: 0 0 200px;
+}
+
+.manual__info-titulo {
+    margin: 0 0 8px;
+
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.manual__arquivo-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.manual__arquivo-link:hover,
+.manual__arquivo-link:focus-visible {
+    opacity: 0.75;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.manual__arquivo-tamanho,
+.manual__publicacao-data {
+    color: var(--color-primary-light);
+    font-size: 14px;
+    font-weight: 500;
+}
 
 .autores {
     margin: 30px 0;
@@ -44,15 +86,16 @@
 }
 
 .autores__item {
-    list-style-type: none;
     display: flex;
     flex-direction: column;
-    margin-bottom: 12px ;
+
+    margin-bottom: 12px;
+    list-style-type: none;
 }
 
 .autores__nome {
-    font-weight: bold;
     margin-bottom: -2px;
+    font-weight: bold;
 }
 
 .palavras-chave,
@@ -62,6 +105,28 @@
 }
 
 @media (max-width: 768px) {
+    .manual__layout {
+        padding: 30px 0;
+    }
+
+    .titulo-manual__texto {
+        max-width: 100%;
+        font-size: 26px;
+    }
+
+    .manual__informacoes {
+        flex-direction: column;
+        gap: 12px;
+
+        margin-bottom: 30px;
+    }
+
+    .manual__arquivos,
+    .manual__publicacao {
+        flex: none;
+        width: 100%;
+    }
+
     .autores__item,
     .palavras-chave,
     .resumo,
@@ -77,6 +142,23 @@
 }
 
 @media (max-width: 425px) {
+    .manual__layout {
+        padding: 24px 0;
+    }
+
+    .titulo-manual__texto {
+        font-size: 22px;
+    }
+
+    .manual__info-bloco {
+        padding: 14px;
+    }
+
+    .manual__arquivo-link {
+        flex-wrap: wrap;
+        gap: 4px 8px;
+    }
+
     .autores__item,
     .palavras-chave,
     .resumo,
@@ -88,79 +170,5 @@
     .resumo__titulo,
     .referencias__titulo {
         font-size: 20px;
-    }
-}
-
-
-.manual__sidebar {
-    width: 200px;
-    min-width: 200px; /* não encolhe */
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-/* Blocos da sidebar */
-.sidebar__bloco {
-    background-color: var(--color-surface);
-    border-radius: 12px;
-    padding: 16px;
-}
-
-.sidebar__titulo {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.sidebar__lista {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar__link {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.sidebar__link--ativo {
-    font-weight: 700;
-}
-
-/* Botão PDF */
-.sidebar__pdf {
-    display: block;
-    text-align: center;
-    background-color: var(--color-primary);
-    color: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: 0.2s;
-}
-
-.sidebar__pdf:hover {
-    opacity: 0.85;
-}
-
-.sidebar__data {
-    font-size: 14px;
-    color: var(--color-primary);
-}
-
-/* Responsivo — sidebar vai para baixo do conteúdo no mobile */
-@media (max-width: 768px) {
-    .manual__layout {
-        flex-direction: column;
-    }
-
-    .manual__sidebar {
-        width: 100%;
     }
 }

@@ -7,20 +7,17 @@ const animais = {
         materiais: [
             {
                 titulo: "Lista de materiais para contenção",
-                descricao: "Itens necessários antes de iniciar o procedimento.",
-                pdf: "../assets/docs/materiais-coelho.pdf"
+                descricao: "Itens necessários antes de iniciar o procedimento."
             },
             {
                 titulo: "Protocolo de biossegurança",
-                descricao: "Cuidados de higiene e EPI recomendados.",
-                pdf: "../assets/docs/protocolo-coelho.pdf"
+                descricao: "Cuidados de higiene e EPI recomendados."
             }
         ],
         procedimentos: [
             {
                 titulo: "Lista de procedimentos",
-                descricao: "Itens necessários antes de iniciar",
-                pdf: "../assets/docs/materiais-coelho.pdf"
+                descricao: "Itens necessários antes de iniciar"
             }
         ],
     },
@@ -68,52 +65,64 @@ const animais = {
     }
 };
 
-// Renderiza a lista de materiais (PDFs) do animal atual
+// Converte valores simples em uma lista para manter a renderização estável
+function normalizarLista(lista) {
+    if (!lista) return [];
+    if (Array.isArray(lista)) return lista;
+
+    if (typeof lista === 'string') {
+        return [{ titulo: '', descricao: lista }];
+    }
+
+    return [];
+}
+
+// Renderiza a lista de materiais apenas como conteúdo informativo
 function renderizarMateriais(lista) {
     const container = document.querySelector('.conteudo__materiais-lista');
+    const itens = normalizarLista(lista);
+
     container.innerHTML = '';
 
-    if (!lista || lista.length === 0) {
+    if (itens.length === 0) {
         container.innerHTML = '<li class="conteudo__materiais-vazio">Nenhum material disponível para este animal.</li>';
         return;
     }
 
-    lista.forEach(item => {
+    itens.forEach(item => {
         const li = document.createElement('li');
         li.className = 'conteudo__materiais-item';
+
         li.innerHTML = `
-            <a href="#" class="conteudo__materiais-link"
-               data-bs-toggle="modal" data-bs-target="#modalPdf"
-               data-pdf="${item.pdf}" data-titulo="${item.titulo}">
-                ${item.titulo}
-            </a>
-            <p class="conteudo__materiais-descricao">${item.descricao}</p>
+            ${item.titulo ? `<strong class="conteudo__item-titulo">${item.titulo}</strong>` : ''}
+            ${item.descricao ? `<p class="conteudo__materiais-descricao">${item.descricao}</p>` : ''}
         `;
+
         container.appendChild(li);
     });
 }
 
-// Renderiza a lista de procedimentos (PDFs) do animal atual
+// Renderiza a lista de procedimentos apenas como conteúdo informativo
 function renderizarProcedimentos(lista) {
     const container = document.querySelector('.conteudo__procedimentos-lista');
+    const itens = normalizarLista(lista);
+
     container.innerHTML = '';
 
-    if (!lista || lista.length === 0) {
+    if (itens.length === 0) {
         container.innerHTML = '<li class="conteudo__procedimentos-vazio">Nenhum procedimento disponível para este animal.</li>';
         return;
     }
 
-    lista.forEach(item => {
+    itens.forEach(item => {
         const li = document.createElement('li');
-        li.className = 'conteudo__procedimentos-lista';
+        li.className = 'conteudo__procedimentos-item';
+
         li.innerHTML = `
-            <a href="#" class="conteudo__procedimentos-link"
-               data-bs-toggle="modal" data-bs-target="#modalPdf"
-               data-pdf="${item.pdf}" data-titulo="${item.titulo}">
-                ${item.titulo}
-            </a>
-            <p class="conteudo__procedimentos-descricao">${item.descricao}</p>
+            ${item.titulo ? `<strong class="conteudo__item-titulo">${item.titulo}</strong>` : ''}
+            ${item.descricao ? `<p class="conteudo__procedimentos-descricao">${item.descricao}</p>` : ''}
         `;
+
         container.appendChild(li);
     });
 }
