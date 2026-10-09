@@ -23,6 +23,19 @@
 body {
     margin: 0 auto;
     background-color: var(--color-background);
+    font-family: var(--font-text);
+}
+
+h1 {
+    font-family: var(--font-title);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-subtitle);
 }
 
 .container {
