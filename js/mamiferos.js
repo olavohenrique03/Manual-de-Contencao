@@ -1,213 +1,67 @@
-// Dados de cada animal
-const animais = {
+// Dados do grupo Mamíferos.
+// Só dados aqui: a renderização fica em js/especies.js (reaproveitável nas outras páginas).
+// Campos ausentes são simplesmente omitidos na tela — preencha aos poucos.
+
+window.ESPECIES_DADOS = {
     coelho: {
-        descricao: "Nesta seção são apresentados conteúdos relacionados às técnicas de contenção física em mamíferos silvestres e exóticos mantidos como pets. Devido às diferenças anatômicas, comportamentais e ao porte corporal das diversas espécies, as estratégias de manejo podem variar significativamente. Assim, são abordadas orientações sobre formas adequadas de contenção, cuidados durante o manuseio e aspectos importantes para reduzir riscos de acidentes e estresse durante os procedimentos clínicos. As informações reunidas buscam auxiliar na compreensão das particularidades desse grupo, contribuindo para um manejo mais seguro e adequado na prática médico-veterinária.",
+        nome: "Coelho",
+        nomeCientifico: "Oryctolagus cuniculus",
+        classificacao: "Ordem Lagomorpha · família Leporidae · peso adulto variável conforme a raça.",
+        descricao: "Herbívoro com comportamento de presa e respostas intensas de fuga. O esqueleto é leve (7 a 8% da massa corporal) e os membros pélvicos são muito fortes: um movimento brusco de extensão, sobretudo com a pelve sem apoio, pode fraturar a coluna lombossacral. A respiração é predominantemente nasal e o estresse pode levar à estase gastrointestinal.",
         video: "https://youtu.be/Fbiwf07K5oY?si=Fvq7Xgyfx7fNi0Hm",
         tituloConteudo: "Contenção para realização de procedimentos",
+
         materiais: [
-            {
-                titulo: "Lista de materiais para contenção",
-                descricao: "Itens necessários antes de iniciar o procedimento."
-            },
-            {
-                titulo: "Protocolo de biossegurança",
-                descricao: "Cuidados de higiene e EPI recomendados."
-            }
+            "Tapete emborrachado ou toalha antiderrapante",
+            "Toalha macia",
+            "Caixa de transporte"
         ],
-        procedimentos: [
-            {
-                titulo: "Lista de procedimentos",
-                descricao: "Itens necessários antes de iniciar"
-            }
+
+        antesDeConter: "Observe o coelho ainda na caixa de transporte (alerta, respiração, postura) e deixe-o sair sozinho, sem perseguir. Aproxime-se devagar, pela lateral, sobre superfície estável.",
+
+        tecnica: {
+            titulo: "Técnica principal: apoio de tórax e pelve",
+            indicacao: "Indicada para exame físico, manejo clínico breve e deslocamentos curtos.",
+            passos: [
+                { titulo: "Estabilize", descricao: "Uma mão envolve o tórax logo atrás dos membros torácicos, controlando-os sem comprimir." },
+                { titulo: "Sustente",   descricao: "A outra mão apoia toda a pelve e os membros posteriores, com a coluna alinhada, antes de qualquer elevação." },
+                { titulo: "Eleve",      descricao: "Levante de forma controlada e mantenha o animal junto ao seu corpo." },
+                { titulo: "Finalize",   descricao: "Retorne o coelho à superfície e libere-o aos poucos, depois de garantir apoio dos quatro membros." }
+            ],
+            porque: "A força dos posteriores somada à fragilidade da coluna favorece lesões nos movimentos bruscos de extensão. O suporte simultâneo de tórax e pelve dá estabilidade e reduz o risco de trauma."
+        },
+
+        alternativas: [
+            "Toalha macia e frouxa, para procedimentos breves, com a cabeça livre e a região posterior apoiada (interrompa se houver intolerância).",
+            "Contenção manual sobre superfície antiderrapante, para avaliações sem elevação.",
+            "Exame parcial dentro da caixa."
         ],
+
+        nuncaFaca: [
+            "Suspender pelas orelhas, membros, cauda ou só pela pele da nuca.",
+            "Deixar a região posterior sem sustentação ao elevar.",
+            "Apertar de modo que atrapalhe a respiração.",
+            "Usar a imobilidade tônica como técnica de rotina."
+        ],
+
+        interrompaSe: [
+            "Taquipneia acentuada",
+            "Vocalização",
+            "Cianose",
+            "Exaustão",
+            "Movimentos violentos de fuga",
+            "Suspeita de lesão"
+        ]
     },
-    porquinho: {
-        descricao: "Teste",
-        video: "../assets/video/coelho.mp4",
-        tituloConteudo: "Lista de materiais do coelho...",
-        materiais: [],
-        procedimentos: "Passo a passo do procedimento..."
-    },
-    chinchila: {
-        descricao: "Nesta seção são apresentados conteúdos relacionados às técnicas de contenção física em mamíferos silvestres e exóticos mantidos como pets. Devido às diferenças anatômicas, comportamentais e ao porte corporal das diversas espécies, as estratégias de manejo podem variar significativamente. Assim, são abordadas orientações sobre formas adequadas de contenção, cuidados durante o manuseio e aspectos importantes para reduzir riscos de acidentes e estresse durante os procedimentos clínicos. As informações reunidas buscam auxiliar na compreensão das particularidades desse grupo, contribuindo para um manejo mais seguro e adequado na prática médico-veterinária.",
-        video: "../assets/video/coelho.mp4",
-        tituloConteudo: "Lista de materiais do coelho...",
-        materiais: [],
-        procedimentos: "Passo a passo do procedimento..."
-    },
-    hamster: {
-        descricao: "Nesta seção são apresentados conteúdos relacionados às técnicas de contenção física em mamíferos silvestres e exóticos mantidos como pets. Devido às diferenças anatômicas, comportamentais e ao porte corporal das diversas espécies, as estratégias de manejo podem variar significativamente. Assim, são abordadas orientações sobre formas adequadas de contenção, cuidados durante o manuseio e aspectos importantes para reduzir riscos de acidentes e estresse durante os procedimentos clínicos. As informações reunidas buscam auxiliar na compreensão das particularidades desse grupo, contribuindo para um manejo mais seguro e adequado na prática médico-veterinária.",
-        video: "../assets/video/coelho.mp4",
-        tituloConteudo: "Lista de materiais do coelho...",
-        materiais: [],
-        procedimentos: "Passo a passo do procedimento..."
-    },
-    twister: {
-        descricao: "Nesta seção são apresentados conteúdos relacionados às técnicas de contenção física em mamíferos silvestres e exóticos mantidos como pets. Devido às diferenças anatômicas, comportamentais e ao porte corporal das diversas espécies, as estratégias de manejo podem variar significativamente. Assim, são abordadas orientações sobre formas adequadas de contenção, cuidados durante o manuseio e aspectos importantes para reduzir riscos de acidentes e estresse durante os procedimentos clínicos. As informações reunidas buscam auxiliar na compreensão das particularidades desse grupo, contribuindo para um manejo mais seguro e adequado na prática médico-veterinária.",
-        video: "../assets/video/coelho.mp4",
-        tituloConteudo: "Lista de materiais do coelho...",
-        materiais: [],
-        procedimentos: "Passo a passo do procedimento..."
-    },
-    furao: {
-        descricao: "Nesta seção são apresentados conteúdos relacionados às técnicas de contenção física em mamíferos silvestres e exóticos mantidos como pets. Devido às diferenças anatômicas, comportamentais e ao porte corporal das diversas espécies, as estratégias de manejo podem variar significativamente. Assim, são abordadas orientações sobre formas adequadas de contenção, cuidados durante o manuseio e aspectos importantes para reduzir riscos de acidentes e estresse durante os procedimentos clínicos. As informações reunidas buscam auxiliar na compreensão das particularidades desse grupo, contribuindo para um manejo mais seguro e adequado na prática médico-veterinária.",
-        video: "../assets/video/coelho.mp4",
-        tituloConteudo: "Lista de materiais do coelho...",
-        materiais: [],
-        procedimentos: "Passo a passo do procedimento..."
-    },
-    ourico: {
-        descricao: "Nesta seção são apresentados conteúdos relacionados às técnicas de contenção física em mamíferos silvestres e exóticos mantidos como pets. Devido às diferenças anatômicas, comportamentais e ao porte corporal das diversas espécies, as estratégias de manejo podem variar significativamente. Assim, são abordadas orientações sobre formas adequadas de contenção, cuidados durante o manuseio e aspectos importantes para reduzir riscos de acidentes e estresse durante os procedimentos clínicos. As informações reunidas buscam auxiliar na compreensão das particularidades desse grupo, contribuindo para um manejo mais seguro e adequado na prática médico-veterinária.",
-        video: "../assets/video/coelho.mp4",
-        tituloConteudo: "Lista de materiais do coelho...",
-        materiais: [],
-        procedimentos: "Passo a passo do procedimento..."
-    }
+
+    // Espécies ainda sem conteúdo: a chave precisa bater com o data-animal do menu.
+    porquinho:            { nome: "Porquinho-da-Índia" },
+    chinchila:            { nome: "Chinchila" },
+    hamster:              { nome: "Hamster" },
+    "hamster-anao-russo": { nome: "Hamster anão russo" },
+    camundongo:           { nome: "Camundongo" },
+    "rato-twister":       { nome: "Rato Twister" },
+    gerbil:               { nome: "Gerbil" },
+    ourico:               { nome: "Ouriço-pigmeu-africano" },
+    furao:                { nome: "Furão" }
 };
-
-// Converte valores simples em uma lista para manter a renderização estável
-function normalizarLista(lista) {
-    if (!lista) return [];
-    if (Array.isArray(lista)) return lista;
-
-    if (typeof lista === 'string') {
-        return [{ titulo: '', descricao: lista }];
-    }
-
-    return [];
-}
-
-// Renderiza a lista de materiais apenas como conteúdo informativo
-function renderizarMateriais(lista) {
-    const container = document.querySelector('.conteudo__materiais-lista');
-    const itens = normalizarLista(lista);
-
-    container.innerHTML = '';
-
-    if (itens.length === 0) {
-        container.innerHTML = '<li class="conteudo__materiais-vazio">Nenhum material disponível para este animal.</li>';
-        return;
-    }
-
-    itens.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'conteudo__materiais-item';
-
-        li.innerHTML = `
-            ${item.titulo ? `<strong class="conteudo__item-titulo">${item.titulo}</strong>` : ''}
-            ${item.descricao ? `<p class="conteudo__materiais-descricao">${item.descricao}</p>` : ''}
-        `;
-
-        container.appendChild(li);
-    });
-}
-
-// Renderiza a lista de procedimentos apenas como conteúdo informativo
-function renderizarProcedimentos(lista) {
-    const container = document.querySelector('.conteudo__procedimentos-lista');
-    const itens = normalizarLista(lista);
-
-    container.innerHTML = '';
-
-    if (itens.length === 0) {
-        container.innerHTML = '<li class="conteudo__procedimentos-vazio">Nenhum procedimento disponível para este animal.</li>';
-        return;
-    }
-
-    itens.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'conteudo__procedimentos-item';
-
-        li.innerHTML = `
-            ${item.titulo ? `<strong class="conteudo__item-titulo">${item.titulo}</strong>` : ''}
-            ${item.descricao ? `<p class="conteudo__procedimentos-descricao">${item.descricao}</p>` : ''}
-        `;
-
-        container.appendChild(li);
-    });
-}
-
-// Função para converter qualquer formato de link do Youtube
-function paraEmbedYoutube(url) {
-    const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
-    if (!match) return null;
-
-    const params = new URLSearchParams({
-        controls: '1',     
-        modestbranding: '1',
-        rel: '0',
-        iv_load_policy: '3',
-        fs: '1'
-    });
-
-    return `https://www.youtube-nocookie.com/embed/${match[1]}?${params.toString()}`;
-}
-
-// Função que atualiza o conteúdo na tela
-function carregarAnimal(nomeAnimal) {
-    const animal = animais[nomeAnimal]
-    if (!animal) return;
-
-    document.querySelector('.descricao__texto').textContent = animal.descricao;
-    document.querySelector('.conteudo__titulo').textContent = animal.tituloConteudo;
-
-    renderizarMateriais(animal.materiais);
-    renderizarProcedimentos(animal.procedimentos);
-
-    const player = document.querySelector('.video-secao__player');
-    const embedUrl = paraEmbedYoutube(animal.video);
-    player.src = embedUrl || animal.video; // se não for link do YouTube, usa a URL original (ex: .mp4)
-}
-
-// Escuta o momento em que o modal está prestes a abrir
-document.addEventListener('show.bs.modal', (event) => {
-    if (event.target.id !== 'modalPdf') return;
-
-    const link = event.relatedTarget; // <a> que disparou o modal
-    if (!link) return;
-
-    const pdfUrl = link.dataset.pdf;
-    const titulo = link.dataset.titulo;
-
-    document.querySelector('.modal-pdf__viewer').src = pdfUrl;
-    document.querySelector('.modal-pdf__download').href = pdfUrl;
-    document.getElementById('modalPdfLabel').textContent = titulo;
-});
-
-// Evento de clique nas abas
-document.querySelectorAll('.animais-menu__item').forEach(item => {
-    item.addEventListener('click', () => {
-
-        //Remove "ativo" de todos
-        document.querySelectorAll('.animais-menu__item').forEach(i => i.classList.remove('ativo'));
-
-        //Adiciona "ativo" no clicado
-        item.classList.add('ativo');
-
-        //Carrega o conteúdo do animal
-        carregarAnimal(item.dataset.animal)
-    });
-});
-
-//Carrega o primeiro animal por padrão
-carregarAnimal('coelho')
-    
-// ----------------------------------------------------------- //
-
-// Setas do menu de animais
-const lista = document.querySelector('.animais-menu__lista');
-const btnPrev = document.querySelector('.animais-menu__seta--prev');
-const btnNext = document.querySelector('.animais-menu__seta--next');
-
-// Quanto desloca por clique (em px)
-const SCROLL_PASSO = 150;
-
-if (btnPrev && btnNext && lista) {
-    btnPrev.addEventListener('click', () => {
-        lista.scrollLeft -= SCROLL_PASSO;
-    });
-
-    btnNext.addEventListener('click', () => {
-        lista.scrollLeft += SCROLL_PASSO;
-    });
-}

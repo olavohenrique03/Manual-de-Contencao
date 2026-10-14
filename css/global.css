@@ -12,6 +12,10 @@
   /* UI (interface) */
   --color-accent: #DBE096;
   --color-surface: #f1ebd9;
+
+  /* ALERTAS (contraste AA sobre --color-surface) */
+  --color-danger: #8c2f2f;
+  --color-warning: #7a5a00;
 }
 
 :root {

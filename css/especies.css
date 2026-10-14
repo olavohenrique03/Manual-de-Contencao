@@ -2,6 +2,11 @@ body {
     background-color: var(--color-background);
 }
 
+/* Garante que o atributo hidden esconda mesmo elementos com display definido */
+[hidden] {
+    display: none !important;
+}
+
 /* Tema espécies */
 .specie-name {
     color: var(--color-primary);
@@ -22,6 +27,50 @@ body {
     }
 }
 
+
+/* Regras comuns do grupo */
+.regras-padrao {
+    background-color: var(--color-surface);
+    border-left: 6px solid var(--color-primary);
+    border-radius: 18px;
+    padding: 24px 30px;
+    margin-bottom: 32px;
+}
+
+.regras-padrao__titulo {
+    color: var(--color-primary);
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0 0 8px;
+}
+
+.regras-padrao__texto {
+    margin: 0 0 16px;
+    line-height: 1.7;
+}
+
+.regras-padrao__subtitulo {
+    color: var(--color-primary);
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 8px;
+}
+
+.regras-padrao__lista {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.regras-padrao__lista li + li {
+    margin-top: 8px;
+}
+
+.regras-padrao__lista strong {
+    color: var(--color-primary);
+}
+
 /* Menu de animais */
 .animais-menu {
     background-color: var(--color-surface);
@@ -37,7 +86,8 @@ body {
 /* Lista — desktop: distribuída; mobile: scroll horizontal */
 .animais-menu__lista {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;            /* com 10 espécies, quebra em 2 linhas no desktop em vez de estourar */
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -45,6 +95,9 @@ body {
 }
 
 .animais-menu__item {
+    border: 0;
+    background: transparent;
+    font-family: inherit;
     color: var(--color-primary);
     padding: 8px 16px;
     font-weight: bold;
@@ -56,7 +109,8 @@ body {
     border-radius: 20px;
 }
 
-.animais-menu__item:hover {
+.animais-menu__item:hover,
+.animais-menu__item:focus-visible {
     background-color: var(--color-primary);
     color: var(--color-surface);
 }
@@ -81,6 +135,7 @@ body {
     }
 
     .animais-menu__lista {
+        flex-wrap: nowrap;        /* no mobile volta a ser uma linha só, com scroll */
         overflow-x: auto;         /* permite scroll horizontal */
         scroll-behavior: smooth;  /* animação suave ao clicar nas setas */
         justify-content: flex-start;
@@ -128,10 +183,51 @@ body {
 }
 
 
-/* Descrição */
-.descricao__texto {
+/* Descrição da espécie */
+.descricao .container {
+    padding-top: 28px;
+}
+
+.descricao__nome {
+    color: var(--color-primary);
+    font-size: 34px;
+    font-weight: 900;
+    margin: 0 0 6px;
+}
+
+.nome-cientifico {
+    color: var(--color-primary-light);
+    font-size: 18px;
+    margin: 0 0 4px;
+}
+
+.informacoes-complemento {
+    color: var(--color-gray);
     font-size: 14px;
-    padding: 20px 0;
+    margin: 0 0 16px;
+}
+
+.descricao__subtitulo {
+    color: var(--color-primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.descricao__texto {
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 0 28px;
+}
+
+.em-breve {
+    background-color: var(--color-surface);
+    border-radius: 18px;
+    color: var(--color-primary);
+    font-weight: 700;
+    padding: 24px 30px;
+    margin: 0 0 28px;
 }
 
 
@@ -170,58 +266,182 @@ body {
 
 
 /* Materiais e Procedimentos */
+.conteudo {
+    padding-bottom: 40px;
+}
+
 .conteudo__titulo {
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     color: var(--color-primary);
-    margin: 18px 0;
+    margin: 28px 0 18px;
 }
 
 .conteudo__colunas {
     display: flex;
+    align-items: flex-start;
     width: 100%;
-    gap: 10px;
-    font-weight: bold;
+    gap: 16px;
 }
 
 .conteudo__materiais,
 .conteudo__procedimentos {
-    flex: 1;
     background-color: var(--color-surface);
     padding: 30px;
-    min-height: 200px;
     border-radius: 18px;
 }
 
+.conteudo__materiais {
+    flex: 1;
+}
 
-.conteudo__materiais-lista,
-.conteudo__procedimentos-lista {
+.conteudo__procedimentos {
+    flex: 2;
+}
+
+.conteudo__subtitulo {
+    color: var(--color-primary);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0 0 14px;
+}
+
+.conteudo__materiais-lista {
     margin: 0;
     padding-left: 20px;
+    line-height: 1.7;
 }
 
-.conteudo__materiais-item,
-.conteudo__procedimentos-item {
-    margin-bottom: 16px;
+/* Blocos dentro de "Procedimentos" */
+.procedimento-bloco + .procedimento-bloco {
+    margin-top: 22px;
 }
 
-.conteudo__item-titulo {
-    display: block;
+.procedimento-bloco__titulo {
     color: var(--color-primary);
+    font-size: 17px;
     font-weight: 700;
+    margin: 0 0 6px;
 }
 
-.conteudo__materiais-descricao,
-.conteudo__procedimentos-descricao,
-.conteudo__materiais-vazio,
-.conteudo__procedimentos-vazio {
-    margin: 4px 0 0;
-    font-weight: 400;
+.procedimento-bloco__texto {
+    margin: 0 0 10px;
+    line-height: 1.7;
+}
+
+.passos {
+    margin: 0 0 12px;
+    padding-left: 22px;
+    line-height: 1.7;
+}
+
+.passos__item + .passos__item {
+    margin-top: 8px;
+}
+
+.passos__titulo {
+    color: var(--color-primary);
+}
+
+.procedimento-nota {
+    background-color: var(--color-background);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin: 0;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.procedimento-nota strong {
+    color: var(--color-primary);
+}
+
+.procedimento-lista {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+/* Alertas de segurança: o ícone (✕ / !) garante que a cor não seja o único sinal */
+.conteudo__alertas {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.alerta {
+    flex: 1;
+    background-color: var(--color-surface);
+    border-left: 6px solid var(--alerta-cor);
+    border-radius: 18px;
+    padding: 24px 30px;
+
+    --alerta-cor: var(--color-primary);
+}
+
+.alerta--perigo {
+    --alerta-cor: var(--color-danger);
+    --alerta-icone: "\2715"; /* ✕ */
+}
+
+.alerta--atencao {
+    --alerta-cor: var(--color-warning);
+    --alerta-icone: "!";
+}
+
+.alerta__titulo {
+    color: var(--alerta-cor);
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0 0 12px;
+}
+
+.alerta__lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.alerta__lista li {
+    position: relative;
+    padding-left: 28px;
+}
+
+.alerta__lista li + li {
+    margin-top: 8px;
+}
+
+.alerta__lista li::before {
+    content: var(--alerta-icone);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    text-align: center;
+    color: var(--alerta-cor);
+    font-weight: 900;
 }
 
 @media (max-width: 768px) {
-    .conteudo__colunas {
+    .conteudo__colunas,
+    .conteudo__alertas {
         flex-direction: column;
+    }
+
+    .conteudo__materiais,
+    .conteudo__procedimentos,
+    .alerta {
+        width: 100%;
+        padding: 22px 20px;
+    }
+
+    .descricao__nome {
+        font-size: 28px;
+    }
+
+    .regras-padrao {
+        padding: 20px;
     }
 }

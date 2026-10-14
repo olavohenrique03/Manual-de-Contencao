@@ -10,94 +10,131 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/modal-pdf.css">
     <link rel="stylesheet" href="../css/especies.css">
 
-    <title>Mamíferos</title>
+    <meta name="description" content="Técnicas de contenção física para mamíferos silvestres e exóticos mantidos como pets: coelho, porquinho-da-índia, chinchila, hamster, furão e outros.">
+
+    <title>Mamíferos | WildGuide</title>
 
 </head>
 <body>
     <!-- Menu de navegação -->
-     <header id="header"></header>
+    <header id="header"></header>
 
     <main>
-        <!-- Tema espécies -->
+        <!-- Tema espécies + regras comuns do grupo -->
         <div class="container">
             <h1 class="specie-name">Mamíferos</h1>
+
+            <section class="regras-padrao" aria-labelledby="regras-titulo">
+                <h2 class="regras-padrao__titulo" id="regras-titulo">Regra comum</h2>
+                <p class="regras-padrao__texto">
+                    Mantenha o corpo sempre sustentado, use a menor força possível, nunca comprima tórax ou
+                    abdômen, trabalhe sobre superfície antiderrapante e contenha o animal apenas pelo tempo necessário.
+                </p>
+
+                <h3 class="regras-padrao__subtitulo">Vale para todas as fichas deste grupo:</h3>
+                <ul class="regras-padrao__lista">
+                    <li><strong>Procedimentos que dependem da contenção:</strong> exame físico geral, inspeção da cavidade oral e dos incisivos, administração de medicamentos, coleta de amostras biológicas, avaliação de lesões e curativos, corte de unhas.</li>
+                    <li><strong>EPIs e higiene:</strong> luvas de nitrila, pijama cirúrgico ou jaleco de uso clínico, e material para higiene das mãos e limpeza da superfície. Exceções estão na ficha da espécie.</li>
+                    <li><strong>Procedimentos que exigem precisão</strong> (coleta de sangue, cateter, exame oftálmico, curativos): use um segundo operador, um contém e o outro executa.</li>
+                    <li><strong>Monitoramento:</strong> observe respiração, mucosas, comportamento e estabilidade corporal durante toda a contenção. Ao terminar, libere o animal só quando estiver totalmente apoiado e acompanhe o retorno ao comportamento habitual, à alimentação e à eliminação fecal.</li>
+                </ul>
+            </section>
         </div>
 
         <!-- Menu de animais -->
-        <section class="animais-menu">
+        <nav class="animais-menu" aria-label="Espécies de mamíferos">
             <div class="container">
-
                 <div class="animais-menu__wrapper">
 
                     <!-- Seta esquerda (só aparece no mobile) -->
-                    <button class="animais-menu__seta animais-menu__seta--prev" aria-label="Anterior">&#8249;</button>
+                    <button type="button" class="animais-menu__seta animais-menu__seta--prev" aria-label="Rolar para a esquerda">&#8249;</button>
 
                     <ul class="animais-menu__lista">
-                        <li class="animais-menu__item ativo" data-animal="coelho">Coelho</li>
-                        <li class="animais-menu__item" data-animal="porquinho">Porquinho-da-Índia</li>
-                        <li class="animais-menu__item" data-animal="chinchila">Chinchila</li>
-                        <li class="animais-menu__item" data-animal="hamster">Hamster</li>
-                        <li class="animais-menu__item" data-animal="twister">Twister</li>
-                        <li class="animais-menu__item" data-animal="furao">Furão</li>
-                        <li class="animais-menu__item" data-animal="ourico">Ouriço</li>
+                        <li><button type="button" class="animais-menu__item ativo" data-animal="coelho" aria-pressed="true">Coelho</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="porquinho" aria-pressed="false">Porquinho-da-Índia</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="chinchila" aria-pressed="false">Chinchila</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="hamster" aria-pressed="false">Hamster</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="hamster-anao-russo" aria-pressed="false">Hamster anão russo</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="camundongo" aria-pressed="false">Camundongo</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="rato-twister" aria-pressed="false">Rato Twister</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="gerbil" aria-pressed="false">Gerbil</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="ourico" aria-pressed="false">Ouriço-pigmeu-africano</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="furao" aria-pressed="false">Furão</button></li>
                     </ul>
 
                     <!-- Seta direita (só aparece no mobile) -->
-                    <button class="animais-menu__seta animais-menu__seta--next" aria-label="Próximo">&#8250;</button>
-                    
+                    <button type="button" class="animais-menu__seta animais-menu__seta--next" aria-label="Rolar para a direita">&#8250;</button>
+
                 </div>
             </div>
-        </section>
+        </nav>
 
-        <!-- Descrição — preenchida pelo JS -->
-        <section class="descricao">
+        <!-- Descrição da espécie — preenchida pelo JS -->
+        <section class="descricao" aria-live="polite">
             <div class="container">
-                <p class="descricao__texto"></p>
+                <h2 class="descricao__nome"></h2>
+                <p class="nome-cientifico">Nome científico: <em class="nome-cientifico__valor"></em></p>
+                <p class="informacoes-complemento"></p>
+
+                <div class="descricao__bloco">
+                    <h3 class="descricao__subtitulo">Conheça a espécie</h3>
+                    <p class="descricao__texto"></p>
+                </div>
+
+                <p class="em-breve" hidden>O conteúdo desta espécie estará disponível em breve.</p>
             </div>
         </section>
 
         <!-- Vídeo — preenchido pelo JS -->
-        <section class="video-secao">
+        <section class="video-secao" hidden>
             <div class="container">
                 <iframe class="video-secao__player" title="Vídeo demonstrativo de contenção" loading="lazy" allowfullscreen></iframe>
             </div>
         </section>
 
-        <!-- Materiais e Procedimentos — preenchidos pelo JS -->
+        <!-- Materiais, procedimentos e alertas — preenchidos pelo JS -->
         <section class="conteudo">
             <div class="container">
                 <h2 class="conteudo__titulo"></h2>
-                <div class="conteudo__colunas">
 
+                <div class="conteudo__colunas">
                     <div class="conteudo__materiais">
-                        <p>Materiais</p>
+                        <h3 class="conteudo__subtitulo">Materiais</h3>
                         <ul class="conteudo__materiais-lista"></ul>
                     </div>
 
                     <div class="conteudo__procedimentos">
-                        <p>Procedimentos</p>
-                        <ul class="conteudo__procedimentos-lista"></ul>
+                        <h3 class="conteudo__subtitulo">Procedimentos</h3>
+                        <div class="conteudo__procedimentos-corpo"></div>
                     </div>
+                </div>
+
+                <div class="conteudo__alertas">
+                    <section class="alerta alerta--perigo" aria-labelledby="alerta-nunca">
+                        <h3 class="alerta__titulo" id="alerta-nunca">Nunca faça</h3>
+                        <ul class="alerta__lista"></ul>
+                    </section>
+
+                    <section class="alerta alerta--atencao" aria-labelledby="alerta-interrompa">
+                        <h3 class="alerta__titulo" id="alerta-interrompa">Interrompa se houver</h3>
+                        <ul class="alerta__lista"></ul>
+                    </section>
                 </div>
             </div>
         </section>
-
     </main>
 
-     <!-- Rodapé -->
-     <footer id="footer"></footer>
+    <!-- Rodapé -->
+    <footer id="footer"></footer>
 
-     <!-- Modal -->
-     <div id="modal-container"></div>
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-     <!-- JS Bootstrap -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-     
-     <!-- JS -->
-     <script src="../js/script.js"></script>
-     <script src="../js/mamiferos.js"></script>
+    <!-- JS: componentes do site, dados do grupo e lógica compartilhada de espécies -->
+    <script src="../js/script.js"></script>
+    <script src="../js/mamiferos.js"></script>
+    <script src="../js/especies.js"></script>
 </body>
 </html>
