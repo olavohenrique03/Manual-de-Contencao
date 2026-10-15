@@ -9,6 +9,26 @@
     padding: 0;
 }
 
+.navbar-brand .header__logo--home {
+    display: none;
+}
+
+.navbar-brand .header__logo--pages {
+    display: block;
+}
+
+body.pagina-inicial .navbar-brand .header__logo--home {
+    display: block;
+}
+
+body.pagina-inicial .navbar-brand .header__logo--pages {
+    display: none;
+}
+
+.header {
+    background-color: var(--color-primary);
+}
+
 .navbar-brand img {
     height: 100px;
     width: auto;
@@ -19,7 +39,7 @@
 .header .nav-link {
     font-family: var(--font-text);
     font-weight: 900;
-    color: var(--color-primary);
+    color: var(--color-background);
     padding: 5px 10px;
     border-radius: 15px;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -123,4 +143,3 @@
     font-weight: 700;
     color: var(--color-primary-light);
 }
-

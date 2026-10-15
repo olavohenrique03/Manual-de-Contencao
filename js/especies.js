@@ -7,20 +7,17 @@ const ESPECIES = window.ESPECIES_DADOS || {};
 
 const $ = (seletor) => document.querySelector(seletor);
 
-// Cria um elemento com classe e texto (textContent evita injetar HTML por engano)
 function criar(tag, classe, texto) {
     const el = document.createElement(tag);
     if (classe) el.className = classe;
-    if (texto) el.textContent = texto;
+    if (texto !== undefined && texto !== null) el.textContent = texto;
     return el;
 }
 
-// Mostra/esconde um bloco inteiro conforme haja conteúdo
 function alternarVisibilidade(elemento, temConteudo) {
     if (elemento) elemento.hidden = !temConteudo;
 }
 
-// Converte qualquer formato de link do YouTube para o formato embed
 function paraEmbedYoutube(url) {
     const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([a-zA-Z0-9_-]{11})/);
     if (!match) return null;
@@ -36,81 +33,152 @@ function paraEmbedYoutube(url) {
     return `https://www.youtube-nocookie.com/embed/${match[1]}?${params.toString()}`;
 }
 
+function juntarComoTexto(itens) {
+    if (!Array.isArray(itens) || itens.length === 0) return '';
+    return itens.map(item => String(item).trim().replace(/[.;]\s*$/, '')).join('. ') + '.';
+}
+
+function juntarComVirgulas(itens) {
+    if (!Array.isArray(itens) || itens.length === 0) return '';
+    return itens.map(item => String(item).trim().replace(/[.;,]\s*$/, '')).join(', ') + '.';
+}
+
 // ---------- Renderizadores ----------
 
 function renderizarLista(container, itens, classeItem) {
+    if (!container) return;
     container.replaceChildren();
-    itens.forEach(texto => container.appendChild(criar('li', classeItem, texto)));
+
+    itens.forEach(texto => {
+        container.appendChild(criar('li', classeItem, texto));
+    });
 }
 
-function renderizarProcedimentos(animal) {
-    const corpo = $('.conteudo__procedimentos-corpo');
-    corpo.replaceChildren();
+function renderizarIntroducao(animal) {
+    const secao = $('.especie-introducao');
+    const descricao = $('.especie-introducao__descricao');
+    const antes = $('.especie-introducao__antes');
+    const antesTexto = $('.especie-introducao__antes-texto');
 
-    // Antes de conter
-    if (animal.antesDeConter) {
-        const bloco = criar('div', 'procedimento-bloco');
-        bloco.appendChild(criar('h4', 'procedimento-bloco__titulo', 'Antes de conter'));
-        bloco.appendChild(criar('p', 'procedimento-bloco__texto', animal.antesDeConter));
-        corpo.appendChild(bloco);
-    }
+    const temDescricao = Boolean(animal.descricao);
+    const temAntes = Boolean(animal.antesDeConter);
 
-    // Técnica principal (indicação + passos + por quê)
+    descricao.textContent = animal.descricao || '';
+    antesTexto.textContent = animal.antesDeConter || '';
+
+    alternarVisibilidade(descricao, temDescricao);
+    alternarVisibilidade(antes, temAntes);
+    alternarVisibilidade(secao, temDescricao || temAntes);
+}
+
+function renderizarTecnica(animal) {
+    const blocoTecnica = $('.tecnica-principal');
+    const indicacao = $('.tecnica-principal__indicacao');
+    const passos = $('.passos');
+    const blocoPorque = $('.porque');
+    const porqueTexto = $('.porque__texto');
+
     const tecnica = animal.tecnica;
-    if (tecnica) {
-        const bloco = criar('div', 'procedimento-bloco');
-        bloco.appendChild(criar('h4', 'procedimento-bloco__titulo', tecnica.titulo));
+    const temTecnica = Boolean(tecnica);
 
-        if (tecnica.indicacao) {
-            bloco.appendChild(criar('p', 'procedimento-bloco__texto', tecnica.indicacao));
-        }
+    indicacao.replaceChildren();
+    passos.replaceChildren();
+    porqueTexto.replaceChildren();
 
-        if (tecnica.passos?.length) {
-            const ol = criar('ol', 'passos');
-            tecnica.passos.forEach(passo => {
-                const li = criar('li', 'passos__item');
-                li.appendChild(criar('strong', 'passos__titulo', passo.titulo));
-                li.appendChild(document.createTextNode(`: ${passo.descricao}`));
-                ol.appendChild(li);
-            });
-            bloco.appendChild(ol);
-        }
-
-        if (tecnica.porque) {
-            const nota = criar('p', 'procedimento-nota');
-            nota.appendChild(criar('strong', null, 'Por quê: '));
-            nota.appendChild(document.createTextNode(tecnica.porque));
-            bloco.appendChild(nota);
-        }
-
-        corpo.appendChild(bloco);
+    if (!temTecnica) {
+        alternarVisibilidade(blocoTecnica, false);
+        alternarVisibilidade(blocoPorque, false);
+        return false;
     }
 
-    // Alternativas
-    if (animal.alternativas?.length) {
-        const bloco = criar('div', 'procedimento-bloco');
-        bloco.appendChild(criar('h4', 'procedimento-bloco__titulo', 'Alternativas'));
-        const ul = criar('ul', 'procedimento-lista');
-        renderizarLista(ul, animal.alternativas);
-        bloco.appendChild(ul);
-        corpo.appendChild(bloco);
+    if (tecnica.titulo) {
+        const tituloLimpo = tecnica.titulo.replace(/^Técnica principal:\s*/i, '');
+        indicacao.appendChild(criar('strong', null, `${tituloLimpo}. `));
     }
 
-    return corpo.children.length > 0;
+    if (tecnica.indicacao) {
+        indicacao.appendChild(document.createTextNode(tecnica.indicacao));
+    }
+
+    if (tecnica.passos?.length) {
+        tecnica.passos.forEach(passo => {
+            const li = criar('li', 'passos__item');
+            li.appendChild(criar('strong', 'passos__titulo', passo.titulo));
+            li.appendChild(document.createTextNode(`: ${passo.descricao}`));
+            passos.appendChild(li);
+        });
+    }
+
+    const temPorque = Boolean(tecnica.porque);
+    if (temPorque) {
+        porqueTexto.appendChild(criar('strong', null, 'Por quê: '));
+        porqueTexto.appendChild(document.createTextNode(tecnica.porque));
+    }
+
+    alternarVisibilidade(blocoTecnica, true);
+    alternarVisibilidade(blocoPorque, temPorque);
+    return true;
 }
 
-function renderizarVideo(url) {
+function renderizarAlternativas(animal) {
+    const bloco = $('.alternativas');
+    const texto = $('.alternativas__texto');
+    const temAlternativas = Boolean(animal.alternativas?.length);
+
+    texto.textContent = temAlternativas ? juntarComoTexto(animal.alternativas) : '';
+    alternarVisibilidade(bloco, temAlternativas);
+
+    return temAlternativas;
+}
+
+function renderizarMateriais(animal) {
+    const bloco = $('.materiais');
+    const texto = $('.materiais__texto');
+    const temMateriais = Boolean(animal.materiais?.length);
+
+    texto.textContent = temMateriais ? juntarComVirgulas(animal.materiais) : '';
+    alternarVisibilidade(bloco, temMateriais);
+
+    return temMateriais;
+}
+
+function renderizarAlertas(animal) {
+    const blocoAlertas = $('.conteudo__alertas');
+    const nunca = $('.alerta--perigo');
+    const interrompa = $('.alerta--atencao');
+
+    const temNunca = Boolean(animal.nuncaFaca?.length);
+    const temInterrompa = Boolean(animal.interrompaSe?.length);
+
+    if (temNunca) {
+        renderizarLista($('.alerta--perigo .alerta__lista'), animal.nuncaFaca);
+    }
+
+    if (temInterrompa) {
+        renderizarLista($('.alerta--atencao .alerta__lista'), animal.interrompaSe);
+    }
+
+    alternarVisibilidade(nunca, temNunca);
+    alternarVisibilidade(interrompa, temInterrompa);
+    alternarVisibilidade(blocoAlertas, temNunca || temInterrompa);
+
+    return temNunca || temInterrompa;
+}
+
+function renderizarVideo(url, nomeAnimal) {
     const secao = $('.video-secao');
     const player = $('.video-secao__player');
 
     if (!url) {
         player.removeAttribute('src');
         alternarVisibilidade(secao, false);
-        return;
+        return false;
     }
 
-    player.src = paraEmbedYoutube(url) || url; // se não for YouTube, usa a URL original
+    player.src = paraEmbedYoutube(url) || url;
+    player.title = `Vídeo demonstrativo de contenção - ${nomeAnimal}`;
     alternarVisibilidade(secao, true);
+    return true;
 }
 
 // ---------- Carregamento de um animal ----------
@@ -119,8 +187,7 @@ function carregarAnimal(chave) {
     const animal = ESPECIES[chave];
     if (!animal) return;
 
-    // Cabeçalho da espécie
-    $('.descricao__nome').textContent = animal.nome;
+    $('.descricao__nome').textContent = animal.nome || '';
 
     const temCientifico = Boolean(animal.nomeCientifico);
     $('.nome-cientifico__valor').textContent = animal.nomeCientifico || '';
@@ -129,41 +196,62 @@ function carregarAnimal(chave) {
     $('.informacoes-complemento').textContent = animal.classificacao || '';
     alternarVisibilidade($('.informacoes-complemento'), Boolean(animal.classificacao));
 
-    $('.descricao__texto').textContent = animal.descricao || '';
-    alternarVisibilidade($('.descricao__bloco'), Boolean(animal.descricao));
+    const temVideo = renderizarVideo(animal.video, animal.nome || 'espécie');
+    renderizarIntroducao(animal);
 
-    // Vídeo
-    renderizarVideo(animal.video);
+    const temTecnica = renderizarTecnica(animal);
+    const temAlternativas = renderizarAlternativas(animal);
+    const temAlertas = renderizarAlertas(animal);
+    const temMateriais = renderizarMateriais(animal);
 
-    // Conteúdo (materiais, procedimentos, alertas)
-    $('.conteudo__titulo').textContent = animal.tituloConteudo || '';
+    const temConteudoFicha = temTecnica || temAlternativas || temAlertas || temMateriais;
+    alternarVisibilidade($('.conteudo'), temConteudoFicha);
 
-    const temMateriais = Boolean(animal.materiais?.length);
-    if (temMateriais) renderizarLista($('.conteudo__materiais-lista'), animal.materiais, 'conteudo__item');
-    alternarVisibilidade($('.conteudo__materiais'), temMateriais);
+    const temDados = Boolean(
+        animal.nomeCientifico ||
+        animal.classificacao ||
+        animal.descricao ||
+        animal.antesDeConter ||
+        temVideo ||
+        temConteudoFicha
+    );
 
-    const temProcedimentos = renderizarProcedimentos(animal);
-    alternarVisibilidade($('.conteudo__procedimentos'), temProcedimentos);
-
-    const temNunca = Boolean(animal.nuncaFaca?.length);
-    if (temNunca) renderizarLista($('.alerta--perigo .alerta__lista'), animal.nuncaFaca);
-    alternarVisibilidade($('.alerta--perigo'), temNunca);
-
-    const temInterrompa = Boolean(animal.interrompaSe?.length);
-    if (temInterrompa) renderizarLista($('.alerta--atencao .alerta__lista'), animal.interrompaSe);
-    alternarVisibilidade($('.alerta--atencao'), temInterrompa);
-
-    // Estados vazios
-    const temAlgumConteudo = temMateriais || temProcedimentos || temNunca || temInterrompa;
-    alternarVisibilidade($('.conteudo'), temAlgumConteudo);
-    alternarVisibilidade($('.conteudo__colunas'), temMateriais || temProcedimentos);
-    alternarVisibilidade($('.conteudo__alertas'), temNunca || temInterrompa);
-    alternarVisibilidade($('.em-breve'), !temAlgumConteudo && !animal.descricao);
+    alternarVisibilidade($('.em-breve'), !temDados);
 }
 
 // ---------- Menu de animais ----------
 
 const itensMenu = document.querySelectorAll('.animais-menu__item');
+const lista = $('.animais-menu__lista');
+const menuWrapper = $('.animais-menu__wrapper');
+const btnPrev = $('.animais-menu__seta--prev');
+const btnNext = $('.animais-menu__seta--next');
+
+function atualizarControlesMenu() {
+    if (!lista || !btnPrev || !btnNext) return;
+
+    const tolerancia = 2;
+    const larguraDisponivelSemSetas = menuWrapper?.clientWidth || lista.clientWidth;
+    const temOverflow = lista.scrollWidth > larguraDisponivelSemSetas + tolerancia;
+
+    btnPrev.hidden = !temOverflow;
+    btnNext.hidden = !temOverflow;
+
+    if (!temOverflow) return;
+
+    btnPrev.disabled = lista.scrollLeft <= tolerancia;
+    btnNext.disabled = lista.scrollLeft + lista.clientWidth >= lista.scrollWidth - tolerancia;
+}
+
+function centralizarItemNoMenu(item) {
+    if (!lista || !item) return;
+
+    item.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'nearest',
+        inline: 'nearest'
+    });
+}
 
 function selecionarItem(item) {
     itensMenu.forEach(i => {
@@ -171,22 +259,36 @@ function selecionarItem(item) {
         i.classList.toggle('ativo', ativo);
         i.setAttribute('aria-pressed', String(ativo));
     });
+
     carregarAnimal(item.dataset.animal);
+    centralizarItemNoMenu(item);
+    window.setTimeout(atualizarControlesMenu, 220);
 }
 
-itensMenu.forEach(item => item.addEventListener('click', () => selecionarItem(item)));
-
-// Setas de rolagem do menu (aparecem só no mobile)
-const lista = $('.animais-menu__lista');
-const btnPrev = $('.animais-menu__seta--prev');
-const btnNext = $('.animais-menu__seta--next');
-const SCROLL_PASSO = 150; // px por clique
+itensMenu.forEach(item => {
+    item.addEventListener('click', () => selecionarItem(item));
+});
 
 if (btnPrev && btnNext && lista) {
-    btnPrev.addEventListener('click', () => { lista.scrollLeft -= SCROLL_PASSO; });
-    btnNext.addEventListener('click', () => { lista.scrollLeft += SCROLL_PASSO; });
+    const rolarMenu = (direcao) => {
+        const passo = Math.max(lista.clientWidth * 0.7, 220);
+        lista.scrollBy({ left: passo * direcao, behavior: 'smooth' });
+    };
+
+    btnPrev.addEventListener('click', () => rolarMenu(-1));
+    btnNext.addEventListener('click', () => rolarMenu(1));
+    lista.addEventListener('scroll', atualizarControlesMenu, { passive: true });
+
+    if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(atualizarControlesMenu);
+        observer.observe(lista);
+    } else {
+        window.addEventListener('resize', atualizarControlesMenu);
+    }
 }
 
 // Carrega o primeiro animal por padrão
 const itemInicial = document.querySelector('.animais-menu__item.ativo') || itensMenu[0];
 if (itemInicial) selecionarItem(itemInicial);
+
+requestAnimationFrame(atualizarControlesMenu);

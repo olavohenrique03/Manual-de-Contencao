@@ -20,7 +20,7 @@ window.ESPECIES_DADOS = {
         antesDeConter: "Observe o coelho ainda na caixa de transporte (alerta, respiração, postura) e deixe-o sair sozinho, sem perseguir. Aproxime-se devagar, pela lateral, sobre superfície estável.",
 
         tecnica: {
-            titulo: "Técnica principal: apoio de tórax e pelve",
+            titulo: "Técnica principal: Apoio de tórax e pelve",
             indicacao: "Indicada para exame físico, manejo clínico breve e deslocamentos curtos.",
             passos: [
                 { titulo: "Estabilize", descricao: "Uma mão envolve o tórax logo atrás dos membros torácicos, controlando-os sem comprimir." },
