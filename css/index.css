@@ -10,24 +10,15 @@ body.pagina-inicial .header .nav-link {
     color: var(--color-primary)
 }
 
-/* Hero */
+/* Hero (Descrição brevia) */
 .hero {
-    position: relative;
-    min-height: 650px;
-    padding: clamp(56px, 7vw, 92px) 0 clamp(150px, 18vw, 230px);
+    padding: 80px 0;
 
-    background-image:
-        linear-gradient(
-            to bottom,
-            rgba(247, 244, 234, 0.98) 0%,
-            rgba(247, 244, 234, 0.94) 54%,
-            rgba(247, 244, 234, 0.72) 72%,
-            rgba(247, 244, 234, 0.12) 100%
-        ),
-        url(../assets/images/imagemIA.png);
+    background-image: url(../assets/images/imagemIA.png);
     background-size: cover;
-    background-position: center bottom;
+    background-position: center;
     background-repeat: no-repeat;
+    min-height: 400px;
 }
 
 .hero .container {
@@ -35,41 +26,15 @@ body.pagina-inicial .header .nav-link {
     z-index: 1;
 }
 
-.hero__content {
-    max-width: 880px;
-}
-
-.hero h1 {
-    max-width: 850px;
-    margin: 0 0 24px;
-
+.hero .container h1 {
     color: var(--color-primary);
-    font-size: clamp(2rem, 4vw, 3.25rem);
     font-weight: 900;
-    line-height: 1.08;
 }
 
-.hero p {
-    max-width: 820px;
-    margin: 0 0 16px;
-
-    color: var(--color-text);
-    font-size: clamp(0.95rem, 1.25vw, 1.05rem);
-    line-height: 1.75;
+.hero .container p {
+    max-width: 80%;
 }
 
-.hero__objective {
-    position: relative;
-    margin-top: 22px !important;
-    padding: 16px 18px 16px 22px;
-
-    background-color: rgba(241, 235, 217, 0.86);
-    border-left: 4px solid var(--color-accent);
-    border-radius: 0 12px 12px 0;
-
-    color: var(--color-primary) !important;
-    font-weight: 700;
-}
 
 /* Slides */
 .destaque {
@@ -152,9 +117,9 @@ body.pagina-inicial .header .nav-link {
     font-weight: 900;
 }
 
-/* Como usar este manual */
+/* Apresentação / Sobre o WildGuide */
 .sobre {
-    padding: clamp(48px, 7vw, 88px) 20px;
+    padding: clamp(48px, 7vw, 78px) 20px;
     background-color: var(--color-surface);
 }
 
@@ -162,272 +127,254 @@ body.pagina-inicial .header .nav-link {
     display: block;
 }
 
-.sobre__intro {
-    max-width: 900px;
-    margin: 0 auto 36px;
-    text-align: center;
-}
-
-.sobre h2,
-.principios h2 {
-    margin-bottom: 16px;
+.sobre h2 {
+    margin: 0 0 24px;
     color: var(--color-primary);
+    font-size: clamp(1.35rem, 2.4vw, 1.75rem);
     font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.sobre__intro p,
-.sobre__nota,
-.sobre__aviso p,
-.principios__cabecalho p,
-.principios__lista p,
-.principios__limites p {
+.sobre p {
+    margin: 0 0 12px;
+    color: var(--color-text);
     line-height: 1.7;
 }
 
-.sobre__estrutura {
-    max-width: 1050px;
-    margin: 0 auto;
-}
+.sobre__objetivo {
+    width: 100%;
+    margin: 28px 0 0 !important;
+    padding: 22px 24px;
 
-.sobre__estrutura > h3 {
-    margin-bottom: 20px;
-    color: var(--color-primary);
-    font-size: 1.25rem;
+    background-color: var(--color-background);
+    color: var(--color-primary) !important;
+
     font-weight: 800;
     text-align: center;
 }
 
-.ficha-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
 
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.ficha-grid li {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-
-    min-height: 116px;
-    padding: 18px 20px;
-
-    background-color: var(--color-background);
-    border: 1px solid rgba(64, 88, 76, 0.16);
-    border-radius: 14px;
-}
-
-.ficha-grid strong {
-    color: var(--color-primary);
-    font-family: var(--font-subtitle);
-    font-size: 1.05rem;
-    font-weight: 900;
-}
-
-.ficha-grid span {
-    color: var(--color-text);
-    line-height: 1.55;
-}
-
-.sobre__nota {
-    max-width: 1000px;
-    margin: 30px auto 0;
-    padding: 18px 20px;
-
-    color: var(--color-primary);
-    background-color: rgba(219, 224, 150, 0.35);
-    border-left: 4px solid var(--color-accent);
-    border-radius: 0 12px 12px 0;
-    font-weight: 700;
-}
-
-.sobre__aviso {
-    max-width: 1000px;
-    margin: 20px auto 0;
-    padding: 20px 22px;
-
-    background-color: var(--color-primary);
-    border-radius: 14px;
-    color: var(--color-background);
-}
-
-.sobre__aviso h3 {
-    margin: 0 0 8px;
-    color: var(--color-background);
-    font-size: 1.15rem;
-    font-weight: 900;
-}
-
-.sobre__aviso p {
-    margin: 0;
-    color: var(--color-background);
-}
-
-/* Princípios gerais e limites de aplicação */
-.principios {
-    padding: clamp(56px, 8vw, 96px) 20px;
+/* Como usar este manual */
+.como-usar {
+    padding: clamp(52px, 7vw, 82px) 20px;
     background-color: var(--color-background);
 }
 
-.principios__cabecalho {
-    max-width: 820px;
-    margin: 0 auto 34px;
+.como-usar__cabecalho h2 {
+    margin: 0 0 24px;
+    color: var(--color-primary);
+    font-size: clamp(1.6rem, 2.8vw, 2rem);
+    font-weight: 900;
     text-align: center;
 }
 
-.principios__cabecalho p {
-    margin: 0;
+.como-usar__cabecalho p {
+    margin: 0 0 24px;
+    color: var(--color-text);
+    line-height: 1.65;
 }
 
-.principios__lista {
+.como-usar__grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
 
-    max-width: 1080px;
-    margin: 0 auto;
+    margin-top: 26px;
+}
+
+.como-usar__coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin: 0;
     padding: 0;
     list-style: none;
-    counter-reset: none;
 }
 
-.principios__lista li {
+.como-usar__item {
     display: flex;
-    gap: 16px;
-    align-items: flex-start;
-
-    padding: 22px;
-
-    background-color: var(--color-surface);
-    border: 1px solid rgba(64, 88, 76, 0.15);
-    border-radius: 16px;
-}
-
-.principios__lista li:last-child {
-    grid-column: 1 / -1;
-}
-
-.principios__numero {
-    display: inline-flex;
-    flex: 0 0 44px;
+    flex: 1 1 auto;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    width: 44px;
-    height: 44px;
+    min-height: 86px;
+    padding: 14px 28px;
 
-    background-color: var(--color-accent);
-    border-radius: 50%;
+    background-color: var(--color-surface);
+    border-radius: 999px;
+
+    color: var(--color-text);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.como-usar__item strong {
     color: var(--color-primary);
-
     font-family: var(--font-subtitle);
+    font-size: 1.02rem;
     font-weight: 900;
 }
 
-.principios__lista h3 {
-    margin: 1px 0 7px;
-    color: var(--color-primary);
+.como-usar__item span {
+    display: block;
+    margin-top: 2px;
+}
+
+.como-usar__nota {
+    margin: 28px 0 20px;
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+.como-usar__aviso {
+    padding: 18px 22px;
+
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.como-usar__aviso h3 {
+    margin: 0 0 6px;
+    color: var(--color-background);
     font-size: 1.08rem;
     font-weight: 900;
 }
 
-.principios__lista p {
+.como-usar__aviso p {
     margin: 0;
+    color: var(--color-background);
+    line-height: 1.65;
+}
+
+
+/* Princípios gerais e limites de aplicação */
+.principios {
+    padding: clamp(46px, 6vw, 72px) 20px;
+    background-color: var(--color-surface);
+}
+
+.principios__cabecalho h2 {
+    margin: 0 0 22px;
+    color: var(--color-primary);
+    font-size: clamp(1.6rem, 2.8vw, 2rem);
+    font-weight: 900;
+    text-align: center;
+}
+
+.principios__cabecalho p {
+    margin: 0 0 6px;
+    color: var(--color-text);
+    line-height: 1.65;
+}
+
+.principios__lista {
+    margin: 18px 0 0;
+    padding-left: 2rem;
+
+    color: var(--color-text);
+}
+
+.principios__lista li {
+    margin-bottom: 8px;
+    padding-left: 4px;
+    line-height: 1.65;
+}
+
+.principios__lista li::marker {
+    color: var(--color-primary);
+    font-weight: 900;
+}
+
+.principios__lista strong {
+    color: var(--color-primary);
+    font-weight: 900;
+}
+
+.principios__lista span {
     color: var(--color-text);
 }
 
 .principios__limites {
-    max-width: 1080px;
-    margin: 26px auto 0;
-    padding: 26px 28px;
-
-    background-color: var(--color-primary);
-    border-radius: 16px;
-    color: var(--color-background);
-}
-
-.principios__limites h3 {
-    margin: 0 0 12px;
-    color: var(--color-background);
-    font-size: 1.25rem;
-    font-weight: 900;
+    margin-top: 26px;
 }
 
 .principios__limites p {
-    margin: 0 0 12px;
-    color: var(--color-background);
+    margin: 0 0 10px;
+    color: var(--color-text);
+    line-height: 1.7;
 }
 
 .principios__limites p:last-child {
     margin-bottom: 0;
 }
 
+
 /* Equipe */
 .equipe {
-    margin: 100px 0;
-    padding: 30px 20px 60px;
+    margin: 0;
+    padding: clamp(34px, 5vw, 62px) 20px;
+    background-color: var(--color-background);
 }
 
 .equipe .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.7fr);
+    align-items: stretch;
+    gap: 18px;
+}
+
+.equipe .imagem-esquerda {
+    min-height: 280px;
+    background-color: var(--color-primary);
 }
 
 .equipe .informações-direita {
-    flex: 1;
-    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-width: 0;
+    padding: 4px 0 4px 6px;
 }
 
 .equipe .informações-direita h2 {
-    padding-bottom: 10px;
+    margin: 0 0 8px;
     color: var(--color-primary);
+    font-size: 1.35rem;
     font-weight: 900;
 }
 
 .equipe .informações-direita p {
     width: 100%;
-    margin-bottom: 24px;
-    line-height: 1.8;
+    margin: 0 0 20px;
+
+    color: var(--color-text);
+    line-height: 1.7;
     text-align: justify;
 }
 
-.equipe .informações-direita button {
-    padding: 5px 10px;
+.equipe__cta {
+    align-self: flex-start;
 
-    background-color: var(--color-accent);
-    border: none;
-    border-radius: 15px;
-
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.equipe .informações-direita button:hover,
-.equipe .informações-direita button:focus-visible {
-    transform: scale(1.03);
-}
-
-.equipe .informações-direita a {
     color: var(--color-primary);
-    font-family: var(--font-text);
-    font-size: 18px;
+    font-family: var(--font-subtitle);
+    font-size: 1.05rem;
     font-weight: 900;
     text-decoration: none;
 }
 
-.equipe .imagem-esquerda {
-    flex: 0 1 500px;
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
-
-    background-color: var(--color-primary);
+.equipe__cta:hover,
+.equipe__cta:focus-visible {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
+
+/* Tablet */
 @media (max-width: 768px) {
     .hero {
         min-height: 0;
@@ -480,58 +427,49 @@ body.pagina-inicial .header .nav-link {
     }
 
     .sobre,
+    .como-usar,
     .principios {
         padding-inline: 16px;
     }
 
-    .ficha-grid,
-    .principios__lista {
+    .como-usar__grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    .ficha-grid li {
-        min-height: auto;
-    }
-
-    .principios__lista li:last-child {
-        grid-column: auto;
-    }
-
-    .sobre__intro,
-    .principios__cabecalho {
-        text-align: left;
-    }
-
-    .sobre__estrutura > h3 {
-        text-align: left;
+    .como-usar__item {
+        min-height: 76px;
+        padding-inline: 22px;
     }
 
     .equipe {
-        margin: 60px 0;
-        padding: 30px 20px;
+        padding-inline: 20px;
     }
 
     .equipe .container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 32px;
+        grid-template-columns: 1fr;
+        gap: 26px;
     }
 
     .equipe .informações-direita {
         order: 1;
-        max-width: 100%;
+        padding: 0;
     }
 
     .equipe .imagem-esquerda {
         order: 2;
-        flex: none;
         width: 100%;
-        max-width: 100%;
-        height: auto;
+        min-height: 0;
         aspect-ratio: 16 / 9;
+    }
+
+    .equipe .informações-direita p {
+        text-align: left;
     }
 }
 
+
+/* Mobile */
 @media (max-width: 425px) {
     .hero {
         padding: 36px 0 105px;
@@ -585,56 +523,66 @@ body.pagina-inicial .header .nav-link {
     }
 
     .sobre,
+    .como-usar,
     .principios {
-        padding: 42px 14px;
+        padding: 38px 14px;
     }
 
     .sobre h2,
-    .principios h2 {
-        font-size: 1.65rem;
+    .como-usar__cabecalho h2,
+    .principios__cabecalho h2 {
+        font-size: 1.45rem;
     }
 
-    .sobre__intro {
-        margin-bottom: 28px;
+    .sobre p,
+    .como-usar__cabecalho p,
+    .como-usar__nota,
+    .como-usar__aviso p,
+    .principios__cabecalho p,
+    .principios__lista,
+    .principios__limites p {
+        font-size: 0.9rem;
     }
 
-    .ficha-grid {
-        gap: 10px;
+    .sobre__objetivo {
+        padding: 18px 16px;
     }
 
-    .ficha-grid li,
-    .sobre__nota,
-    .sobre__aviso,
-    .principios__lista li,
-    .principios__limites {
+    .como-usar__item {
+        min-height: 70px;
+        padding: 12px 18px;
+        border-radius: 28px;
+    }
+
+    .como-usar__item strong {
+        font-size: 0.98rem;
+    }
+
+    .como-usar__nota {
+        margin-top: 24px;
+    }
+
+    .como-usar__aviso {
         padding: 16px;
     }
 
-    .principios__lista li {
-        gap: 12px;
-    }
-
-    .principios__numero {
-        flex-basis: 38px;
-        width: 38px;
-        height: 38px;
-        font-size: 0.85rem;
+    .principios__lista {
+        padding-left: 1.6rem;
     }
 
     .equipe {
-        margin: 40px 0;
-        padding: 24px 16px;
+        padding: 30px 14px 42px;
     }
 
     .equipe .container {
-        gap: 24px;
+        gap: 22px;
     }
 
     .equipe .informações-direita p {
-        font-size: 12px;
+        font-size: 0.9rem;
     }
 
-    .equipe .informações-direita a {
-        font-size: 16px;
+    .equipe__cta {
+        font-size: 1rem;
     }
 }

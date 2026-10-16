@@ -170,7 +170,6 @@ body {
     font-size: clamp(2.7rem, 6vw, 4rem);
     font-weight: 700;
     line-height: 1;
-    text-transform: uppercase;
     margin: 0 0 10px;
 }
 
@@ -283,8 +282,15 @@ body {
     gap: 24px;
 }
 
-.porque {
+.pagina-mamiferos .porque {
     margin-top: 34px;
+    padding: 20px;
+    background-color: var(--color-accent);
+    border-radius: 16px;
+}
+
+body.pagina-mamiferos main strong {
+    font-size: calc(1em + 2px);
 }
 
 .conteudo__subtitulo {

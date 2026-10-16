@@ -22,24 +22,14 @@
     <header id="header"></header>
     
     <main>
-        <!-- Apresentação do manual -->
-        <section class="hero" aria-labelledby="hero-title">
+        <!-- Hero (Descrição brevia) -->
+        <section class="hero">
             <div class="container">
-                <div class="hero__content">
-                    <h1 id="hero-title">Manual de Técnicas de Contenção Física em Animais Silvestres Mantidos como Pets</h1>
-
+                    <h1>Manual de contenção Física</h1>
                     <p>
-                        O Wild Guide é um manual técnico-científico ilustrado, nascido de um projeto de Iniciação Científica da Universidade Anhembi Morumbi. Ele reúne em um só lugar informações hoje espalhadas entre livros, artigos e documentos técnicos, e se destina a estudantes e profissionais de Medicina Veterinária.
+                        Guia ilustrado e vídeos demonstrativos que ensinam, de forma prática, como 
+                        realizar a contenção segura de animais silvestres e exóticos mantidos como pets.
                     </p>
-
-                    <p>
-                        A contenção física de animais silvestres e exóticos mantidos como pets exige conhecer as particularidades anatômicas, fisiológicas e comportamentais de cada espécie. Feita de forma inadequada, ela provoca lesões, intensifica o estresse e compromete a segurança do paciente e do manipulador. Por isso, o manual relaciona cada técnica às características biológicas do animal e combina orientação prática, fundamentação científica e recursos visuais (fotografias e vídeos demonstrativos na plataforma digital) para consulta rápida e didática.
-                    </p>
-
-                    <p class="hero__objective">
-                        O objetivo é apoiar a formação acadêmica e a rotina clínica com práticas seguras, que reduzam o estresse e respeitem o bem-estar animal.
-                    </p>
-                </div>
             </div>
         </section>
 
@@ -113,64 +103,101 @@
             </div>
         </section>
 
-        <!-- Como utilizar o manual -->
-        <section class="sobre" aria-labelledby="como-usar-title">
+        <!-- Apresentação do WildGuide -->
+        <section class="sobre" aria-labelledby="sobre-title">
             <div class="container">
-                <div class="sobre__intro">
+                <h2 id="sobre-title">Sobre Wild Guide</h2>
+
+                <p>
+                    O Wild Guide é um manual técnico-científico ilustrado, nascido de um projeto de Iniciação Científica da Universidade Anhembi Morumbi.
+                    Ele reúne em um só lugar informações hoje espalhadas entre livros, artigos e documentos técnicos, e se destina a estudantes e profissionais
+                    de Medicina Veterinária.
+                </p>
+
+                <p>
+                    A contenção física de animais silvestres e exóticos mantidos como pets exige conhecer as particularidades anatômicas, fisiológicas e
+                    comportamentais de cada espécie. Feita de forma inadequada, ela provoca lesões, intensifica o estresse e compromete a segurança do paciente
+                    e do manipulador. Por isso, o manual relaciona cada técnica às características biológicas do animal e combina orientação prática,
+                    fundamentação científica e recursos visuais (fotografias e vídeos demonstrativos na plataforma digital) para consulta rápida e didática.
+                </p>
+
+                <p class="sobre__objetivo">
+                    O objetivo é apoiar a formação acadêmica e a rotina clínica com práticas seguras, que reduzam o estresse e respeitem o bem-estar animal.
+                </p>
+            </div>
+        </section>
+
+        <!-- Como usar este manual -->
+        <section class="como-usar" aria-labelledby="como-usar-title">
+            <div class="container">
+                <div class="como-usar__cabecalho">
                     <h2 id="como-usar-title">Como usar este manual</h2>
+
                     <p>
-                        O conteúdo está organizado em cinco grupos taxonômicos: mamíferos, aves, répteis, peixes e anfíbios. Cada grupo abre com uma regra comum, que vale para todas as suas espécies e não é repetida nas fichas.
+                        O conteúdo está organizado em cinco grupos taxonômicos: mamíferos, aves, répteis, peixes e anfíbios.
+                        Cada grupo abre com uma regra comum, que vale para todas as suas espécies e não é repetida nas fichas.
+                        Cada espécie tem uma ficha com:
                     </p>
                 </div>
 
-                <div class="sobre__estrutura" aria-labelledby="estrutura-ficha-title">
-                    <h3 id="estrutura-ficha-title">Cada espécie tem uma ficha com:</h3>
-                    <ul class="ficha-grid">
-                        <li>
+                <div class="como-usar__grid">
+                    <ul class="como-usar__coluna" aria-label="Estrutura inicial da ficha">
+                        <li class="como-usar__item">
                             <strong>Conheça a espécie</strong>
-                            <span>Classificação, anatomia, comportamento e riscos que mudam a técnica.</span>
+                            <span>classificação, anatomia, comportamento e riscos que mudam a técnica.</span>
                         </li>
-                        <li>
+
+                        <li class="como-usar__item">
                             <strong>Antes de conter</strong>
-                            <span>O que observar e preparar antes do primeiro contato.</span>
+                            <span>o que observar e preparar antes do primeiro contato.</span>
                         </li>
-                        <li>
+
+                        <li class="como-usar__item">
                             <strong>Técnica principal</strong>
-                            <span>Indicação e passo a passo, com a justificativa anatomofisiológica.</span>
+                            <span>indicação e passo a passo, com a justificativa anatomofisiológica.</span>
                         </li>
-                        <li>
+                    </ul>
+
+                    <ul class="como-usar__coluna" aria-label="Estrutura complementar da ficha">
+                        <li class="como-usar__item">
                             <strong>Alternativas</strong>
-                            <span>Outras técnicas e quando usá-las.</span>
+                            <span>outras técnicas e quando usá-las.</span>
                         </li>
-                        <li>
+
+                        <li class="como-usar__item">
                             <strong>Nunca faça</strong>
-                            <span>Práticas contraindicadas na espécie.</span>
+                            <span>práticas contraindicadas na espécie.</span>
                         </li>
-                        <li>
+
+                        <li class="como-usar__item">
                             <strong>Interrompa se</strong>
-                            <span>Sinais que pedem mudar a técnica ou parar.</span>
+                            <span>sinais que pedem mudar a técnica ou parar.</span>
                         </li>
-                        <li>
+
+                        <li class="como-usar__item">
                             <strong>Materiais</strong>
-                            <span>O que deixar pronto, além do que já consta na regra comum do grupo.</span>
+                            <span>o que deixar pronto, além do que já consta na regra comum do grupo.</span>
                         </li>
                     </ul>
                 </div>
 
-                <p class="sobre__nota">
-                    A técnica principal tem finalidade didática e não é necessariamente a mais adequada para todas as situações. Adapte sempre a escolha à condição clínica, ao comportamento e ao porte de cada paciente.
+                <p class="como-usar__nota">
+                    A técnica principal tem finalidade didática e não é necessariamente a mais adequada para todas as situações.
+                    Adapte sempre a escolha à condição clínica, ao comportamento e ao porte de cada paciente.
                 </p>
 
-                <aside class="sobre__aviso" role="note" aria-labelledby="aviso-importante-title">
+                <aside class="como-usar__aviso" role="note" aria-labelledby="aviso-importante-title">
                     <h3 id="aviso-importante-title">Aviso importante</h3>
                     <p>
-                        Este material tem finalidade educacional e não substitui o treinamento prático supervisionado, a avaliação individual do paciente nem o julgamento clínico do médico-veterinário. As imagens e os vídeos da plataforma foram produzidos com aprovação da CEUA-UAM (Processo nº 24/2026).
+                        Este material tem finalidade educacional e não substitui o treinamento prático supervisionado, a avaliação individual do paciente
+                        nem o julgamento clínico do médico-veterinário. As imagens e os vídeos da plataforma foram produzidos com aprovação da CEUA-UAM
+                        (Processo nº 24/2026).
                     </p>
                 </aside>
             </div>
         </section>
 
-        <!-- Princípios gerais de contenção -->
+        <!-- Princípios gerais e limites de aplicação -->
         <section class="principios" aria-labelledby="principios-title">
             <div class="container">
                 <div class="principios__cabecalho">
@@ -180,69 +207,57 @@
 
                 <ol class="principios__lista">
                     <li>
-                        <span class="principios__numero" aria-hidden="true">01</span>
-                        <div>
-                            <h3>Menor restrição necessária</h3>
-                            <p>Use controle suficiente para o procedimento, sem força desnecessária.</p>
-                        </div>
+                        <strong>Menor restrição necessária.</strong>
+                        <span>Use controle suficiente para o procedimento, sem força desnecessária.</span>
                     </li>
                     <li>
-                        <span class="principios__numero" aria-hidden="true">02</span>
-                        <div>
-                            <h3>Planeje antes de tocar</h3>
-                            <p>Avalie o estado clínico, o comportamento e o padrão respiratório; prepare o ambiente e os materiais; defina a função de cada pessoa.</p>
-                        </div>
+                        <strong>Planeje antes de tocar.</strong>
+                        <span>Avalie o estado clínico, o comportamento e o padrão respiratório; prepare o ambiente e os materiais; defina a função de cada pessoa.</span>
                     </li>
                     <li>
-                        <span class="principios__numero" aria-hidden="true">03</span>
-                        <div>
-                            <h3>Monitore sempre</h3>
-                            <p>Observe respiração, mucosas e comportamento durante toda a contenção.</p>
-                        </div>
+                        <strong>Monitore sempre.</strong>
+                        <span>Observe respiração, mucosas e comportamento durante toda a contenção.</span>
                     </li>
                     <li>
-                        <span class="principios__numero" aria-hidden="true">04</span>
-                        <div>
-                            <h3>Saiba interromper</h3>
-                            <p>Mudar de técnica ou parar faz parte do manejo seguro. Se a contenção falhar, reorganize em vez de apertar mais.</p>
-                        </div>
+                        <strong>Saiba interromper.</strong>
+                        <span>Mudar de técnica ou parar faz parte do manejo seguro. Se a contenção falhar, reorganize em vez de apertar mais.</span>
                     </li>
                     <li>
-                        <span class="principios__numero" aria-hidden="true">05</span>
-                        <div>
-                            <h3>Seja breve</h3>
-                            <p>Manipulações curtas reduzem o estresse e os riscos.</p>
-                        </div>
+                        <strong>Seja breve.</strong>
+                        <span>Manipulações curtas reduzem o estresse e os riscos.</span>
                     </li>
                 </ol>
 
                 <div class="principios__limites">
-                    <h3>Limites de aplicação</h3>
                     <p>
-                        Evite compressões que dificultem a ventilação, posições incompatíveis com a anatomia da espécie e manobras que favoreçam traumatismos. Considere também a segurança da equipe, sobretudo em espécies com mecanismos defensivos capazes de ferir. Animais peçonhentos ou de alto risco exigem profissionais capacitados, equipamentos e protocolos específicos.
+                        Evite compressões que dificultem a ventilação, posições incompatíveis com a anatomia da espécie e manobras que favoreçam traumatismos.
+                        Considere também a segurança da equipe, sobretudo em espécies com mecanismos defensivos capazes de ferir. Animais peçonhentos ou de alto
+                        risco exigem profissionais capacitados, equipamentos e protocolos específicos.
                     </p>
+
                     <p>
-                        Quando a contenção física não oferecer condições adequadas de segurança, o médico-veterinário responsável deve avaliar outras estratégias, como a contenção farmacológica.
+                        Quando a contenção física não oferecer condições adequadas de segurança, o médico-veterinário responsável deve avaliar outras estratégias,
+                        como a contenção farmacológica.
                     </p>
                 </div>
             </div>
         </section>
 
         <!-- Descrição breve da equipe -->
-        <section class="equipe">
+        <section class="equipe" aria-labelledby="equipe-title">
             <div class="container">
-                <div class="imagem-esquerda">
-                    <img src="" alt="">
-                </div>
+                <div class="imagem-esquerda" aria-hidden="true"></div>
+
                 <div class="informações-direita">
-                    <h2>Equipe</h2>
+                    <h2 id="equipe-title">Equipe</h2>
                     <p>
                         A plataforma permite que estudantes e profissionais acompanhem os procedimentos com clareza,
                         observando os detalhes das técnicas e revisando o conteúdo sempre que necessário. Dessa forma, o
                         aprendizado se torna mais acessível, prático e confortável, contribuindo para o desenvolvimento das
                         habilidades de manejo e promovendo maior segurança para os profissionais e bem-estar para os animais.
                     </p>
-                    <button><a href="./pages/equipe.html">Conheça a equipe</a></button>
+
+                    <a class="equipe__cta" href="./pages/equipe.html">Conheça a equipe</a>
                 </div>
             </div>
         </section>
