@@ -268,7 +268,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Rodentia · família Muridae · peso adulto de cerca de 250 a 650 g.",
         "descricao": "Roedor exploratório e social, em geral dócil quando socializado, mas capaz de fugir e morder em defesa sob estresse. O corpo é flexível, os movimentos são rápidos e o metabolismo é elevado. A cauda é delicada e se lesiona com tração ou quando usada como único ponto de sustentação.",
         "antesDeConter": "Observe na caixa e deixe o animal explorar brevemente a mesa de atendimento. Priorize movimentos calmos e previsíveis.",
-        "video": "https://youtu.be/lSNpAHTb49s?si=Eg2SipJzWevGEmRc",
+        "video": "https://youtu.be/RtWQIukaFQo?si=hRKpNPPNdlpPPv1a",
         "tecnica": {
             "titulo": "Técnica principal: apoio de tórax e pelve",
             "indicacao": "Indicada para exame físico inicial, manejo clínico breve e deslocamentos curtos em animais que toleram a manipulação.",

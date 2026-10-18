@@ -22,6 +22,8 @@ function paraEmbedYoutube(url) {
 
     const params = new URLSearchParams({
         controls: '1',
+        mute: true,
+        controls: 0,
         modestbranding: '1',
         rel: '0',
         iv_load_policy: '3',
@@ -200,7 +202,7 @@ function renderizarVideo(url, nomeAnimal) {
     return true;
 }
 
-function carregarAnimal(chave) {
+function carregarAnimal(chave, variacao = null, nomeVariacao = null) {
     const animal = ESPECIES[chave];
     if (!animal) return;
 
@@ -220,7 +222,11 @@ function carregarAnimal(chave) {
     cobertas.textContent = animal.especiesCobertas || '';
     alternarVisibilidade($('.especies-cobertas'), Boolean(animal.especiesCobertas));
 
-    const temVideo = renderizarVideo(animal.video, animal.nome || 'espécie');
+    // Nos submenus, varia apenas o vídeo; o restante da ficha é compartilhado.
+    const videoSelecionado = variacao !== null
+        ? (animal.videosPorEspecie?.[variacao] || '')
+        : animal.video;
+    const temVideo = renderizarVideo(videoSelecionado, nomeVariacao || animal.nome || 'espécie');
     renderizarIntroducao(animal);
 
     const temTecnica = renderizarTecnica(animal);
@@ -276,19 +282,98 @@ function centralizarItemNoMenu(item) {
     });
 }
 
-function selecionarItem(item) {
+// Dropdowns de grupos: estrutura reutilizável em qualquer página de espécies.
+const submenus = document.querySelectorAll('.animais-menu__submenu[data-submenu-id]');
+let submenuAberto = null;
+
+function fecharSubmenus() {
+    submenus.forEach(submenu => { submenu.hidden = true; });
+    itensMenu.forEach(item => {
+        if (item.dataset.submenu) item.setAttribute('aria-expanded', 'false');
+    });
+    submenuAberto = null;
+}
+
+function posicionarSubmenu(item, submenu) {
+    const container = item.closest('.animais-menu')?.querySelector('.container');
+    if (!container) return;
+    const origem = container.getBoundingClientRect();
+    const gatilho = item.getBoundingClientRect();
+    // O submenu fica fora da lista com overflow-x, mantendo-se visível no mobile.
+    const margem = 8;
+    const largura = submenu.offsetWidth;
+    const deslocamento = gatilho.left - origem.left;
+    const maxEsquerda = Math.max(margem, origem.width - largura - margem);
+    submenu.style.left = `${Math.max(margem, Math.min(deslocamento, maxEsquerda))}px`;
+    submenu.style.top = `${gatilho.bottom - origem.top + 5}px`;
+}
+
+function alternarSubmenu(item) {
+    const submenu = [...submenus].find(menu => menu.dataset.submenuId === item.dataset.submenu);
+    if (!submenu) return;
+    const jaAberto = submenuAberto === submenu;
+    fecharSubmenus();
+    if (jaAberto) return;
+    submenu.hidden = false;
+    item.setAttribute('aria-expanded', 'true');
+    submenuAberto = submenu;
+    posicionarSubmenu(item, submenu);
+}
+
+function selecionarItem(item, variacao = null, nomeVariacao = null) {
+    fecharSubmenus();
     itensMenu.forEach(i => {
         const ativo = i === item;
         i.classList.toggle('ativo', ativo);
         i.setAttribute('aria-pressed', String(ativo));
     });
 
-    carregarAnimal(item.dataset.animal);
+    document.querySelectorAll('.animais-menu__submenu-item').forEach(opcao => {
+        const selecionada = item.dataset.submenu === opcao.closest('[data-submenu-id]')?.dataset.submenuId
+            && variacao === opcao.dataset.variacao;
+        opcao.classList.toggle('ativo', selecionada);
+        opcao.setAttribute('aria-pressed', String(selecionada));
+    });
+
+    carregarAnimal(item.dataset.animal, variacao, nomeVariacao);
     centralizarItemNoMenu(item);
     window.setTimeout(atualizarControlesMenu, 220);
 }
 
-itensMenu.forEach(item => item.addEventListener('click', () => selecionarItem(item)));
+itensMenu.forEach(item => item.addEventListener('click', () => {
+    if (item.dataset.submenu) {
+        alternarSubmenu(item);
+    } else {
+        selecionarItem(item);
+    }
+}));
+
+submenus.forEach(submenu => {
+    submenu.querySelectorAll('.animais-menu__submenu-item').forEach(opcao => {
+        opcao.setAttribute('aria-pressed', 'false');
+        opcao.addEventListener('click', () => {
+            const gatilho = [...itensMenu].find(item => item.dataset.submenu === submenu.dataset.submenuId);
+            if (gatilho) selecionarItem(gatilho, opcao.dataset.variacao, opcao.textContent.trim());
+        });
+    });
+});
+
+document.addEventListener('click', evento => {
+    if (submenuAberto && !evento.target.closest('.animais-menu__submenu, .animais-menu__item--dropdown')) {
+        fecharSubmenus();
+    }
+});
+
+document.addEventListener('keydown', evento => {
+    if (evento.key === 'Escape' && submenuAberto) {
+        const gatilho = [...itensMenu].find(item => item.dataset.submenu === submenuAberto.dataset.submenuId);
+        fecharSubmenus();
+        gatilho?.focus();
+    }
+});
+
+window.addEventListener('resize', fecharSubmenus);
+lista?.addEventListener('scroll', fecharSubmenus, { passive: true });
 
 if (btnPrev && btnNext && lista) {
     const rolarMenu = (direcao) => {

@@ -232,3 +232,12 @@ body {
     .instituicoes .instituicoes__nome { font-size: 12px; padding-left: 2px}
     
 }
+/* A instituição da seção Colaboração ocupa uma linha no mobile. */
+.colaboracao__lista li { display: block; }
+.colaboracao__nome {
+    display: inline-block;
+    flex: none;
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: clamp(0.7rem, 3.2vw, 1rem);
+}

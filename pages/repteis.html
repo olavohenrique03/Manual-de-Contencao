@@ -47,10 +47,17 @@
                         <li><button type="button" class="animais-menu__item" data-animal="gecko-leopardo" aria-pressed="false">Gecko-leopardo</button></li>
                         <li><button type="button" class="animais-menu__item" data-animal="dragao-barbudo" aria-pressed="false">Dragão-barbudo</button></li>
                         <li><button type="button" class="animais-menu__item" data-animal="iguana-verde" aria-pressed="false">Iguana-verde</button></li>
-                        <li><button type="button" class="animais-menu__item" data-animal="serpentes" aria-pressed="false">Serpentes</button></li>
+                        <!-- Modelo reutilizável: adicione data-submenu no botão e crie outro bloco com data-submenu-id. -->
+                        <li><button type="button" class="animais-menu__item animais-menu__item--dropdown" data-animal="serpentes" data-submenu="serpentes" aria-controls="submenu-serpentes" aria-expanded="false" aria-pressed="false">Serpentes</button></li>
                     </ul>
                     <button type="button" class="animais-menu__seta animais-menu__seta--next" aria-label="Rolar para a direita">&#8250;</button>
                 </div>
+                <!-- Submenu separado da lista horizontal para não ser cortado em telas pequenas.
+                     Para reutilizar: copie o bloco, troque data-submenu-id, id e opções. -->
+                <ul class="animais-menu__submenu" id="submenu-serpentes" data-submenu-id="serpentes" aria-label="Tipos de serpentes" hidden>
+                    <li><button type="button" class="animais-menu__submenu-item" data-variacao="piton-bola">Piton Bola</button></li>
+                    <li><button type="button" class="animais-menu__submenu-item" data-variacao="corn-snake">Corn Snake</button></li>
+                </ul>
             </div>
         </nav>
 

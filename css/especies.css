@@ -156,6 +156,63 @@ body {
 
 
 
+/* Dropdown no mesmo estilo do menu do header, sem clipping pelo scroll horizontal. */
+.animais-menu .container {
+    position: relative;
+}
+
+.animais-menu {
+    position: relative;
+    z-index: 5;
+}
+
+.animais-menu__item--dropdown::after {
+    display: inline-block;
+    content: "";
+    margin-left: 9px;
+    vertical-align: 0.18em;
+    border-top: 0.33em solid currentColor;
+    border-right: 0.28em solid transparent;
+    border-left: 0.28em solid transparent;
+}
+
+.animais-menu__submenu {
+    position: absolute;
+    z-index: 20;
+    width: max-content;
+    min-width: 195px;
+    max-width: calc(100% - 16px);
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    background-color: var(--color-white);
+    border: 1px solid rgba(16, 53, 35, 0.12);
+    border-radius: 15px;
+    box-shadow: 0 10px 24px rgba(16, 53, 35, 0.14);
+}
+
+.animais-menu__submenu-item {
+    display: block;
+    width: 100%;
+    padding: 9px 16px;
+    border: none;
+    background: transparent;
+    color: var(--color-primary);
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.animais-menu__submenu-item:hover,
+.animais-menu__submenu-item:focus-visible,
+.animais-menu__submenu-item.ativo {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+}
+
 /* ==============================
    IDENTIFICAÇÃO DA ESPÉCIE
 ================================ */
@@ -517,8 +574,9 @@ body.pagina-especies main strong {
 
 @media (max-width: 425px) {
     .specie-name {
-        font-size: clamp(3rem, 16vw, 4rem);
+        font-size: 50px;
         margin-bottom: 16px;
+        
     }
 
     .regras-padrao__texto,
