@@ -36,7 +36,7 @@ body.pagina-inicial .header .nav-link {
 
 .hero .container h1 {
     color: var(--color-primary);
-    font-weight: 900;
+    font-weight: bold;
 }
 
 .hero .container p {
@@ -321,6 +321,7 @@ body.pagina-inicial .header .nav-link {
 .pagina-chamada {
     margin: 0;
     padding: clamp(34px, 5vw, 62px) 20px;
+    padding: 80px 0px;
     background-color: var(--color-background);
 }
 
@@ -331,7 +332,7 @@ body.pagina-inicial .header .nav-link {
 .pagina-chamada .container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .pagina-chamada h2 {
@@ -354,12 +355,15 @@ body.pagina-inicial .header .nav-link {
     font-size: 1.05rem;
     font-weight: 900;
     text-decoration: none;
+
+    background-color: var(--color-accent);
+    padding: 2px 18px;
+    border-radius: 12px;
 }
 
 .pagina-chamada__cta:hover,
 .pagina-chamada__cta:focus-visible {
     color: var(--color-primary);
-    text-decoration: underline;
     text-underline-offset: 4px;
 }
 
@@ -432,7 +436,7 @@ body.pagina-inicial .header .nav-link {
     }
 
     .pagina-chamada p {
-        text-align: left;
+        text-align: center;
     }
 }
 

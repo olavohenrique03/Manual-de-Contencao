@@ -129,7 +129,6 @@
     position: relative;
     min-width: 0;
     padding: 18px 18px 18px 54px;
-    border-left: 3px solid var(--color-primary-light);
     border-radius: 10px;
     background: var(--color-surface);
     counter-increment: bibliografia;
@@ -183,6 +182,7 @@
     .titulo-manual__texto {
         max-width: 100%;
         font-size: 26px;
+        font-weight: bold;
     }
 
     .manual__informacoes {
