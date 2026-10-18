@@ -1,9 +1,7 @@
-// Lógica compartilhada das páginas de espécies (mamíferos, aves, répteis...).
+// Lógica compartilhada das páginas de espécies (mamíferos, aves, répteis, peixes e anfíbios).
 // Espera que a página carregue antes um arquivo de dados que defina window.ESPECIES_DADOS.
 
 const ESPECIES = window.ESPECIES_DADOS || {};
-
-// ---------- Helpers ----------
 
 const $ = (seletor) => document.querySelector(seletor);
 
@@ -38,20 +36,40 @@ function juntarComoTexto(itens) {
     return itens.map(item => String(item).trim().replace(/[.;]\s*$/, '')).join('. ') + '.';
 }
 
-function juntarComVirgulas(itens) {
-    if (!Array.isArray(itens) || itens.length === 0) return '';
-    return itens.map(item => String(item).trim().replace(/[.;,]\s*$/, '')).join(', ') + '.';
+function textoFlexivel(valor, modo = 'frases') {
+    if (typeof valor === 'string') return valor.trim();
+    if (!Array.isArray(valor) || valor.length === 0) return '';
+    return modo === 'virgulas'
+        ? valor.map(item => String(item).trim().replace(/[.;,]\s*$/, '')).join(', ') + '.'
+        : juntarComoTexto(valor);
 }
-
-// ---------- Renderizadores ----------
 
 function renderizarLista(container, itens, classeItem) {
     if (!container) return;
     container.replaceChildren();
 
-    itens.forEach(texto => {
+    (Array.isArray(itens) ? itens : []).forEach(texto => {
         container.appendChild(criar('li', classeItem, texto));
     });
+}
+
+function renderizarRegraSubgrupo(animal) {
+    const bloco = $('.regra-subgrupo');
+    const titulo = $('.regra-subgrupo__titulo');
+    const texto = $('.regra-subgrupo__texto');
+    const regra = animal.regraSubgrupo;
+    const temRegra = Boolean(regra?.texto);
+
+    if (temRegra) {
+        titulo.textContent = regra.titulo || 'Regra específica';
+        texto.textContent = regra.texto;
+    } else {
+        titulo.textContent = '';
+        texto.textContent = '';
+    }
+
+    alternarVisibilidade(bloco, temRegra);
+    return temRegra;
 }
 
 function renderizarIntroducao(animal) {
@@ -75,6 +93,7 @@ function renderizarTecnica(animal) {
     const blocoTecnica = $('.tecnica-principal');
     const indicacao = $('.tecnica-principal__indicacao');
     const passos = $('.passos');
+    const observacao = $('.tecnica-principal__observacao');
     const blocoPorque = $('.porque');
     const porqueTexto = $('.porque__texto');
 
@@ -83,10 +102,12 @@ function renderizarTecnica(animal) {
 
     indicacao.replaceChildren();
     passos.replaceChildren();
+    observacao.textContent = '';
     porqueTexto.replaceChildren();
 
     if (!temTecnica) {
         alternarVisibilidade(blocoTecnica, false);
+        alternarVisibilidade(observacao, false);
         alternarVisibilidade(blocoPorque, false);
         return false;
     }
@@ -109,12 +130,16 @@ function renderizarTecnica(animal) {
         });
     }
 
+    const temObservacao = Boolean(tecnica.observacao);
+    if (temObservacao) observacao.textContent = tecnica.observacao;
+
     const temPorque = Boolean(tecnica.porque);
     if (temPorque) {
         porqueTexto.appendChild(criar('strong', null, 'Por quê: '));
         porqueTexto.appendChild(document.createTextNode(tecnica.porque));
     }
 
+    alternarVisibilidade(observacao, temObservacao);
     alternarVisibilidade(blocoTecnica, true);
     alternarVisibilidade(blocoPorque, temPorque);
     return true;
@@ -123,22 +148,22 @@ function renderizarTecnica(animal) {
 function renderizarAlternativas(animal) {
     const bloco = $('.alternativas');
     const texto = $('.alternativas__texto');
-    const temAlternativas = Boolean(animal.alternativas?.length);
+    const conteudo = textoFlexivel(animal.alternativas, 'frases');
+    const temAlternativas = Boolean(conteudo);
 
-    texto.textContent = temAlternativas ? juntarComoTexto(animal.alternativas) : '';
+    texto.textContent = conteudo;
     alternarVisibilidade(bloco, temAlternativas);
-
     return temAlternativas;
 }
 
 function renderizarMateriais(animal) {
     const bloco = $('.materiais');
     const texto = $('.materiais__texto');
-    const temMateriais = Boolean(animal.materiais?.length);
+    const conteudo = textoFlexivel(animal.materiais, 'virgulas');
+    const temMateriais = Boolean(conteudo);
 
-    texto.textContent = temMateriais ? juntarComVirgulas(animal.materiais) : '';
+    texto.textContent = conteudo;
     alternarVisibilidade(bloco, temMateriais);
-
     return temMateriais;
 }
 
@@ -150,18 +175,12 @@ function renderizarAlertas(animal) {
     const temNunca = Boolean(animal.nuncaFaca?.length);
     const temInterrompa = Boolean(animal.interrompaSe?.length);
 
-    if (temNunca) {
-        renderizarLista($('.alerta--perigo .alerta__lista'), animal.nuncaFaca);
-    }
-
-    if (temInterrompa) {
-        renderizarLista($('.alerta--atencao .alerta__lista'), animal.interrompaSe);
-    }
+    renderizarLista($('.alerta--perigo .alerta__lista'), temNunca ? animal.nuncaFaca : []);
+    renderizarLista($('.alerta--atencao .alerta__lista'), temInterrompa ? animal.interrompaSe : []);
 
     alternarVisibilidade(nunca, temNunca);
     alternarVisibilidade(interrompa, temInterrompa);
     alternarVisibilidade(blocoAlertas, temNunca || temInterrompa);
-
     return temNunca || temInterrompa;
 }
 
@@ -181,20 +200,25 @@ function renderizarVideo(url, nomeAnimal) {
     return true;
 }
 
-// ---------- Carregamento de um animal ----------
-
 function carregarAnimal(chave) {
     const animal = ESPECIES[chave];
     if (!animal) return;
+
+    renderizarRegraSubgrupo(animal);
 
     $('.descricao__nome').textContent = animal.nome || '';
 
     const temCientifico = Boolean(animal.nomeCientifico);
     $('.nome-cientifico__valor').textContent = animal.nomeCientifico || '';
+    $('.nome-cientifico__rotulo').textContent = animal.rotuloCientifico || 'Nome científico:';
     alternarVisibilidade($('.nome-cientifico'), temCientifico);
 
     $('.informacoes-complemento').textContent = animal.classificacao || '';
     alternarVisibilidade($('.informacoes-complemento'), Boolean(animal.classificacao));
+
+    const cobertas = $('.especies-cobertas__texto');
+    cobertas.textContent = animal.especiesCobertas || '';
+    alternarVisibilidade($('.especies-cobertas'), Boolean(animal.especiesCobertas));
 
     const temVideo = renderizarVideo(animal.video, animal.nome || 'espécie');
     renderizarIntroducao(animal);
@@ -210,6 +234,7 @@ function carregarAnimal(chave) {
     const temDados = Boolean(
         animal.nomeCientifico ||
         animal.classificacao ||
+        animal.especiesCobertas ||
         animal.descricao ||
         animal.antesDeConter ||
         temVideo ||
@@ -218,8 +243,6 @@ function carregarAnimal(chave) {
 
     alternarVisibilidade($('.em-breve'), !temDados);
 }
-
-// ---------- Menu de animais ----------
 
 const itensMenu = document.querySelectorAll('.animais-menu__item');
 const lista = $('.animais-menu__lista');
@@ -265,9 +288,7 @@ function selecionarItem(item) {
     window.setTimeout(atualizarControlesMenu, 220);
 }
 
-itensMenu.forEach(item => {
-    item.addEventListener('click', () => selecionarItem(item));
-});
+itensMenu.forEach(item => item.addEventListener('click', () => selecionarItem(item)));
 
 if (btnPrev && btnNext && lista) {
     const rolarMenu = (direcao) => {
@@ -287,8 +308,6 @@ if (btnPrev && btnNext && lista) {
     }
 }
 
-// Carrega o primeiro animal por padrão
 const itemInicial = document.querySelector('.animais-menu__item.ativo') || itensMenu[0];
 if (itemInicial) selecionarItem(itemInicial);
-
 requestAnimationFrame(atualizarControlesMenu);

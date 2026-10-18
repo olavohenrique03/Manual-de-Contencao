@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/especies.css">
+
+    <meta name="description" content="Técnicas de contenção física para aves silvestres e exóticas mantidas como pets.">
+    <title>Aves | WildGuide</title>
+</head>
+<body class="pagina-especies pagina-aves">
+    <header id="header"></header>
+
+    <main>
+        <section class="grupo-especies" aria-labelledby="grupo-titulo">
+            <div class="container">
+                <h1 class="specie-name" id="grupo-titulo">AVES</h1>
+
+                <div class="regras-padrao" aria-labelledby="regras-titulo">
+                    <h2 class="regras-padrao__titulo" id="regras-titulo">Regra comum</h2>
+                    <p class="regras-padrao__texto">As aves não têm diafragma e respiram pela movimentação do esterno e das costelas. Nunca comprima o tórax nem a cavidade celomática, mantenha a ave em posição anatômica (evite decúbito dorsal prolongado) e faça tudo no menor tempo possível.</p>
+
+                    <h3 class="regras-padrao__subtitulo">Vale para todas as fichas deste grupo:</h3>
+                    <ul class="regras-padrao__lista">
+                        <li><strong>Procedimentos que dependem da contenção:</strong> exame físico geral, inspeção do bico e da cavidade oral, avaliação de asas, penas e membros pélvicos, administração de medicamentos, coleta de amostras biológicas, avaliação de lesões e curativos, corte de unhas e manutenção do bico quando indicados.</li>
+                        <li><strong>EPIs e higiene:</strong> luvas de nitrila, pijama cirúrgico ou jaleco de uso clínico, e material para higiene e desinfecção. Exceções estão na ficha da espécie.</li>
+                        <li><strong>Preparo:</strong> ambiente silencioso, com pouca luz quando apropriado, sem obstáculos que causem colisões; controle da cabeça, das asas e dos pés planejado antes da captura.</li>
+                        <li><strong>Monitoramento:</strong> observe respiração (inclusive com o bico aberto), mucosas, postura e resposta aos estímulos. Após a liberação, acompanhe equilíbrio, atividade e respiração até a ave recuperar o padrão habitual.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <nav class="animais-menu" aria-label="Espécies de aves">
+            <div class="container">
+                <div class="animais-menu__wrapper">
+                    <button type="button" class="animais-menu__seta animais-menu__seta--prev" aria-label="Rolar para a esquerda">&#8249;</button>
+                    <ul class="animais-menu__lista">
+                        <li><button type="button" class="animais-menu__item ativo" data-animal="psitacideos-grande" aria-pressed="true">Psitacídeos de grande porte</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="psitacideos-medio" aria-pressed="false">Psitacídeos de médio porte</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="psitacideos-pequeno" aria-pressed="false">Psitacídeos de pequeno porte</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="canario" aria-pressed="false">Canário-doméstico</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="coruja-suindara" aria-pressed="false">Coruja-suindara</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="ganso" aria-pressed="false">Ganso</button></li>
+                        <li><button type="button" class="animais-menu__item" data-animal="galo" aria-pressed="false">Galo</button></li>
+                    </ul>
+                    <button type="button" class="animais-menu__seta animais-menu__seta--next" aria-label="Rolar para a direita">&#8250;</button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="descricao" aria-live="polite" aria-atomic="false">
+            <div class="container">
+                <aside class="regra-subgrupo" hidden>
+                    <h2 class="regra-subgrupo__titulo"></h2>
+                    <p class="regra-subgrupo__texto"></p>
+                </aside>
+
+                <h2 class="descricao__nome"></h2>
+                <p class="nome-cientifico"><span class="nome-cientifico__rotulo">Nome científico:</span> <em class="nome-cientifico__valor"></em></p>
+                <p class="informacoes-complemento"></p>
+                <p class="especies-cobertas" hidden><strong>Espécies cobertas:</strong> <span class="especies-cobertas__texto"></span></p>
+                <p class="em-breve" hidden>O conteúdo desta espécie estará disponível em breve.</p>
+            </div>
+        </section>
+
+        <section class="video-secao" hidden aria-label="Vídeo demonstrativo da técnica de contenção">
+            <div class="container">
+                <div class="video-secao__moldura">
+                    <iframe class="video-secao__player" title="Vídeo demonstrativo de contenção" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="especie-introducao" hidden>
+            <div class="container">
+                <h3 class="especie-introducao__titulo">Conheça a espécie</h3>
+                <p class="especie-introducao__descricao"></p>
+                <p class="especie-introducao__antes" hidden>
+                    <strong>Antes de conter.</strong>
+                    <span class="especie-introducao__antes-texto"></span>
+                </p>
+            </div>
+        </section>
+
+        <section class="conteudo" hidden>
+            <div class="container">
+                <div class="conteudo__tecnica-grid">
+                    <article class="tecnica-principal" hidden>
+                        <h3 class="conteudo__subtitulo conteudo__subtitulo--centralizado">Técnica principal</h3>
+                        <p class="tecnica-principal__indicacao"></p>
+                        <ol class="passos"></ol>
+                        <p class="tecnica-principal__observacao" hidden></p>
+                    </article>
+
+                    <div class="conteudo__apoio">
+                        <article class="porque" hidden>
+                            <p class="porque__texto"></p>
+                        </article>
+
+                        <article class="alternativas" hidden>
+                            <h3 class="conteudo__subtitulo conteudo__subtitulo--centralizado">Alternativas</h3>
+                            <p class="alternativas__texto"></p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="conteudo__alertas" hidden>
+                    <section class="alerta alerta--perigo" aria-labelledby="alerta-nunca">
+                        <h3 class="alerta__titulo" id="alerta-nunca">Nunca faça</h3>
+                        <ul class="alerta__lista"></ul>
+                    </section>
+
+                    <section class="alerta alerta--atencao" aria-labelledby="alerta-interrompa">
+                        <h3 class="alerta__titulo" id="alerta-interrompa">Interrompa se houver</h3>
+                        <ul class="alerta__lista"></ul>
+                    </section>
+                </div>
+
+                <section class="materiais" hidden aria-labelledby="materiais-titulo">
+                    <h3 class="conteudo__subtitulo" id="materiais-titulo">Materiais</h3>
+                    <p class="materiais__texto"></p>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/aves.js"></script>
+    <script src="../js/especies.js"></script>
+</body>
+</html>

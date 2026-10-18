@@ -104,6 +104,15 @@
     margin: 40px 0;
 }
 
+.referencias__texto {
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.referencias__texto + .referencias__texto {
+    margin-top: 14px;
+}
+
 @media (max-width: 768px) {
     .manual__layout {
         padding: 30px 0;
