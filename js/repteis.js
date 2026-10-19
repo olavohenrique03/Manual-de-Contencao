@@ -13,7 +13,7 @@ window.ESPECIES_DADOS = {
             "texto": "possuem carapaça dorsal e plastrão ventral, estruturas ósseas que protegem o corpo, mas não impedem fraturas ou lesões internas decorrentes de quedas e impactos. Podem retrair a cabeça e os membros como resposta defensiva, dificultando o acesso clínico. Apresentam bico córneo capaz de causar mordidas e membros com unhas que podem provocar arranhaduras. Nunca force a exteriorização de estruturas retraídas nem eleve o animal sem sustentação segura da carapaça e plastrão. Considere as diferenças de porte, formato da carapaça e plastrão e hábitos terrestres ou aquáticos."
         },
         "antesDeConter": "Observe o comportamento e a resposta à aproximação. Prepare uma superfície firme e antiderrapante e avalie a necessidade de um segundo operador, especialmente em indivíduos maiores. Evite elevações desnecessárias.",
-        "video": "https://youtu.be/k8S2pOrgo3I?si=l3xrhyKqO9i6XpUq",
+        "video": "https://youtu.be/v77oTY28lVY?si=fM3yEzCReCaruszt",
         "tecnica": {
             "titulo": "Técnica principal: Sustentação manual da carapaça e do plastrão",
             "indicacao": "Indicada para exame físico, avaliação da carapaça e plastrão, manejo clínico breve e deslocamentos curtos.",
@@ -126,7 +126,7 @@ window.ESPECIES_DADOS = {
             "texto": "apresentam diferenças de porte, anatomia e comportamento que influenciam a contenção. Podem reagir com mordidas, arranhaduras e golpes com a cauda. Algumas espécies possuem autotomia caudal, mecanismo defensivo que permite o desprendimento da cauda. Durante a manipulação, mantenha o corpo sustentado, evite tracionar membros ou cauda e previna quedas. Considere a força, a agilidade e as respostas defensivas de cada espécie."
         },
         "antesDeConter": "Observe a postura, a coloração e a expansão da região gular, além das respostas defensivas. Prepare uma superfície antiderrapante e avalie a necessidade de um segundo operador para procedimentos que exijam maior precisão.",
-        "video": "https://youtu.be/LgKtxuPZ6NY?si=SQm5cJCMAvdnIQ8I",
+        "video": "https://youtu.be/amsCiVnjdaY?si=AkRDTDFZScDHpp1I",
         "tecnica": {
             "titulo": "Técnica principal: Estabilização anterior com sustentação corporal",
             "indicacao": "Indicada para exame físico, administração de medicamentos e procedimentos clínicos breves.",
@@ -183,7 +183,7 @@ window.ESPECIES_DADOS = {
             "texto": "apresentam diferenças de porte, anatomia e comportamento que influenciam a contenção. Podem reagir com mordidas, arranhaduras e golpes com a cauda. Algumas espécies possuem autotomia caudal, mecanismo defensivo que permite o desprendimento da cauda. Durante a manipulação, mantenha o corpo sustentado, evite tracionar membros ou cauda e previna quedas. Considere a força, a agilidade e as respostas defensivas de cada espécie."
         },
         "antesDeConter": "Avalie o porte, o temperamento e o espaço disponível. Retire obstáculos que possam causar traumatismos durante movimentos da cauda. Em indivíduos grandes, organize dois operadores e defina previamente as funções de cada um.",
-        "video": "https://youtu.be/uX6pthLpmMw?si=sop-a0Xaoa6CgsLR",
+        "video": "https://youtu.be/BGhA0vrPF_8?si=AbY0eOVffdLXjSun",
         "tecnica": {
             "titulo": "Técnica principal: Estabilização anterior com suporte posterior e controle da cauda",
             "indicacao": "Indicada para exame físico, manejo clínico breve e deslocamentos curtos, quando a condição do animal permitir.",
@@ -239,8 +239,8 @@ window.ESPECIES_DADOS = {
         // Mesma ficha técnica para as três serpentes; apenas o vídeo muda.
         // Cole o link não listado do YouTube entre as aspas da serpente correspondente.
         "videosPorEspecie": {
-            "piton-bola": "https://youtu.be/oOFhClwCiow?si=bqd4zHJR2dtNyezs",
-            "corn-snake": "https://youtu.be/Y5aB-DJYwJM?si=FIPLe6_OifTdVCeb"
+            "piton-bola": "https://youtu.be/i1hnefSdN5o?si=08DG_7Pmp4m0wx5p",
+            "corn-snake": "https://youtu.be/PyTTjr5FtEU?si=ewooX0jgSB58k45s"
         },
         "regraSubgrupo": {
             "titulo": "Regra comum às serpentes",

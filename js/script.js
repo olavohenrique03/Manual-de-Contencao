@@ -1,6 +1,10 @@
 const scriptPath = document.currentScript?.src || '';
-const BASE_PATH = scriptPath.includes('github.io')
-  ? '/Manual-de-Contencao/'
+
+// Define a raiz do projeto a partir da localização real deste script.
+// Assim, o site funciona em GitHub Pages independentemente do nome do
+// usuário/repositório (ex.: /WildGuide/), em domínio próprio e no Live Server.
+const BASE_PATH = scriptPath
+  ? new URL('../', scriptPath).pathname
   : '/';
 
 window.BASE_PATH = BASE_PATH;

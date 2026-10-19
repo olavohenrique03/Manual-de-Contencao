@@ -16,6 +16,7 @@
 
     color: var(--color-primary);
     font-size: 30px;
+    font-weight: bold;
 }
 
 /* Arquivos e publicação — permanecem no topo em qualquer largura */
@@ -182,7 +183,6 @@
     .titulo-manual__texto {
         max-width: 100%;
         font-size: 26px;
-        font-weight: bold;
     }
 
     .manual__informacoes {

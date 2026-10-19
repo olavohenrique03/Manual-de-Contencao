@@ -55,7 +55,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Rodentia · família Caviidae · peso adulto de cerca de 700 a 1.200 g.",
         "descricao": "Herbívoro de comportamento de presa, que pode fugir, vocalizar ou ficar imóvel sob estresse. É dócil, mas muito sensível ao estresse, que pode reduzir a motilidade gastrointestinal, e sofre hipertermia e exaustão em manipulações longas. O corpo é compacto, os membros são curtos e a flexibilidade vertebral é limitada, por isso a sustentação precisa ser completa.",
         "antesDeConter": "Observe na caixa de transporte e dê um breve tempo de adaptação ao ambiente. Aproxime-se pela lateral, sem perseguição, e evite pegar por cima da cabeça.",
-        "video": "https://youtu.be/s4eDwmWUE-4?si=oz_5yRZ43FCdtjsJ",
+        "video": "https://youtu.be/c5VieIszc-M?si=qRoH4DZ14WCpadMU",
         "tecnica": {
             "titulo": "Técnica principal: apoio de tórax e abdômen",
             "indicacao": "Indicada para exame físico, manejo clínico breve e deslocamentos curtos.",
@@ -268,7 +268,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Rodentia · família Muridae · peso adulto de cerca de 250 a 650 g.",
         "descricao": "Roedor exploratório e social, em geral dócil quando socializado, mas capaz de fugir e morder em defesa sob estresse. O corpo é flexível, os movimentos são rápidos e o metabolismo é elevado. A cauda é delicada e se lesiona com tração ou quando usada como único ponto de sustentação.",
         "antesDeConter": "Observe na caixa e deixe o animal explorar brevemente a mesa de atendimento. Priorize movimentos calmos e previsíveis.",
-        "video": "https://youtu.be/RtWQIukaFQo?si=hRKpNPPNdlpPPv1a",
+        "video": "https://youtu.be/61KWtu1FSVc?si=IuHH9gncBShs91h5",
         "tecnica": {
             "titulo": "Técnica principal: apoio de tórax e pelve",
             "indicacao": "Indicada para exame físico inicial, manejo clínico breve e deslocamentos curtos em animais que toleram a manipulação.",
@@ -316,6 +316,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Rodentia · família Muridae (subfamília Gerbillinae).",
         "descricao": "Muito ágil, com membros posteriores desenvolvidos para saltos, cauda delicada e metabolismo elevado.",
         "antesDeConter": "Observe na caixa de transporte e aproxime-se de forma lenta e previsível. Evite separar animais que vivem juntos sem necessidade.",
+        "video": "https://youtu.be/kVIN9vu-_Zc?si=7WqmuPdwohSuWxp6",
         "tecnica": {
             "titulo": "Técnica principal: apoio de corpo sobre superfície segura",
             "indicacao": "",

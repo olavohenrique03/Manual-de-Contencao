@@ -8,7 +8,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Anura · família Ranidae · peso adulto variável, podendo ultrapassar 1 kg.",
         "descricao": "Anfíbio semiaquático de corpo robusto e membros pélvicos fortes, que dão saltos súbitos e extensões violentas, com risco de queda e trauma. Não segure os membros isoladamente e não aumente a pressão no tronco para ganhar controle.",
         "antesDeConter": "Organize o local e os materiais e delimite o espaço, porque a rã pode fugir e cair de superfícies altas. Evite perseguições seguidas.",
-        "video": "https://youtu.be/UZkhc81sYHc?si=vlF33Lsi0joPsfd-",
+        "video": "https://youtu.be/gSiptEAg8YM?si=bSqiWWJ8620qiN5b",
         "tecnica": {
             "titulo": "Técnica principal: Contenção Manual com Suporte Corporal Integral",
             "indicacao": "Indicada para exame físico e procedimentos breves que exijam acesso direto ao corpo.",
@@ -164,7 +164,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Anura · família Hylidae · peso adulto geralmente de algumas dezenas de gramas.",
         "descricao": "Perereca arborícola de porte pequeno, com discos adesivos nas extremidades dos dígitos. Puxar o corpo enquanto os dígitos estão colados pode lesionar os membros. A pele é delicada e permeável, com secreções glandulares defensivas, e o animal pode saltar de repente ou tentar escalar as mãos. A contenção deve ser breve, com contato mínimo.",
         "antesDeConter": "Verifique se os dígitos estão aderidos ao substrato e firme o corpo antes de tentar tirar o animal de onde está apoiado.",
-        "video": "https://youtu.be/DDFa3cbMkZg?si=Bop5q1wKOAB0gokV",
+        "video": "https://youtu.be/9MBAsxCyZ74?si=airvr0EC8YxLJNlT",
         "tecnica": {
             "titulo": "Técnica principal: Contenção Manual com Apoio Palmar",
             "indicacao": "Indicada para exame físico e procedimentos breves que exijam acesso direto ao corpo.",
