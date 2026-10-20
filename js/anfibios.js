@@ -8,7 +8,7 @@ window.ESPECIES_DADOS = {
         "classificacao": "Ordem Anura · família Ranidae · peso adulto variável, podendo ultrapassar 1 kg.",
         "descricao": "Anfíbio semiaquático de corpo robusto e membros pélvicos fortes, que dão saltos súbitos e extensões violentas, com risco de queda e trauma. Não segure os membros isoladamente e não aumente a pressão no tronco para ganhar controle.",
         "antesDeConter": "Organize o local e os materiais e delimite o espaço, porque a rã pode fugir e cair de superfícies altas. Evite perseguições seguidas.",
-        "video": "https://youtu.be/gSiptEAg8YM?si=bSqiWWJ8620qiN5b",
+        "video": "",
         "tecnica": {
             "titulo": "Técnica principal: Contenção Manual com Suporte Corporal Integral",
             "indicacao": "Indicada para exame físico e procedimentos breves que exijam acesso direto ao corpo.",
