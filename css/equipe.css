@@ -216,10 +216,11 @@ body {
     .hero-equipe h1 { font-size: 70px }
 
     .realizacao h2 {margin-bottom: -6px; font-size: 22px;}
-    .orientacao h2, .colaboracao h2 { margin-bottom: 18px; font-size: 22px;}  
+    .orientacao h2, .colaboracao h2, .desenvolvedor h2 { margin-bottom: 10px; font-size: 22px;}  
     .instituicoes h2 { margin-bottom: 12px;} 
 
-    .realizacao .realizacao__lista { font-size: 12px; }
+    .realizacao .realizacao__lista,
+    .desenvolvedor .desenvolvedor__lista { font-size: 12px; }
     .realizacao__curriculo {margin: 26px 0 2px; }
 
     .realizacao__lista li,

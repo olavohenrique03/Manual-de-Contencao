@@ -1,4 +1,23 @@
 // Lógica compartilhada das páginas de espécies (mamíferos, aves, répteis, peixes e anfíbios).
+const ESPECIES_LANG = document.documentElement.lang.toLowerCase().startsWith('en') ? 'en' : 'pt';
+const ESPECIES_UI = ESPECIES_LANG === 'en'
+    ? {
+        regraEspecifica: 'Specific rule',
+        tecnicaPrefixo: /^(?:Primary technique|Técnica principal):\s*/i,
+        porque: 'Why: ',
+        nomeCientifico: 'Scientific name:',
+        videoTitulo: 'Restraint demonstration video',
+        especie: 'species'
+      }
+    : {
+        regraEspecifica: 'Regra específica',
+        tecnicaPrefixo: /^(?:Técnica principal|Primary technique):\s*/i,
+        porque: 'Por quê: ',
+        nomeCientifico: 'Nome científico:',
+        videoTitulo: 'Vídeo demonstrativo de contenção',
+        especie: 'espécie'
+      };
+
 // Espera que a página carregue antes um arquivo de dados que defina window.ESPECIES_DADOS.
 
 const ESPECIES = window.ESPECIES_DADOS || {};
@@ -63,7 +82,7 @@ function renderizarRegraSubgrupo(animal) {
     const temRegra = Boolean(regra?.texto);
 
     if (temRegra) {
-        titulo.textContent = regra.titulo || 'Regra específica';
+        titulo.textContent = regra.titulo || ESPECIES_UI.regraEspecifica;
         texto.textContent = regra.texto;
     } else {
         titulo.textContent = '';
@@ -115,7 +134,7 @@ function renderizarTecnica(animal) {
     }
 
     if (tecnica.titulo) {
-        const tituloLimpo = tecnica.titulo.replace(/^Técnica principal:\s*/i, '');
+        const tituloLimpo = tecnica.titulo.replace(ESPECIES_UI.tecnicaPrefixo, '');
         indicacao.appendChild(criar('strong', null, `${tituloLimpo}. `));
     }
 
@@ -137,7 +156,7 @@ function renderizarTecnica(animal) {
 
     const temPorque = Boolean(tecnica.porque);
     if (temPorque) {
-        porqueTexto.appendChild(criar('strong', null, 'Por quê: '));
+        porqueTexto.appendChild(criar('strong', null, ESPECIES_UI.porque));
         porqueTexto.appendChild(document.createTextNode(tecnica.porque));
     }
 
@@ -197,7 +216,7 @@ function renderizarVideo(url, nomeAnimal) {
     }
 
     player.src = paraEmbedYoutube(url) || url;
-    player.title = `Vídeo demonstrativo de contenção - ${nomeAnimal}`;
+    player.title = `${ESPECIES_UI.videoTitulo} - ${nomeAnimal}`;
     alternarVisibilidade(secao, true);
     return true;
 }
@@ -212,7 +231,7 @@ function carregarAnimal(chave, variacao = null, nomeVariacao = null) {
 
     const temCientifico = Boolean(animal.nomeCientifico);
     $('.nome-cientifico__valor').textContent = animal.nomeCientifico || '';
-    $('.nome-cientifico__rotulo').textContent = animal.rotuloCientifico || 'Nome científico:';
+    $('.nome-cientifico__rotulo').textContent = animal.rotuloCientifico || ESPECIES_UI.nomeCientifico;
     alternarVisibilidade($('.nome-cientifico'), temCientifico);
 
     $('.informacoes-complemento').textContent = animal.classificacao || '';
@@ -226,7 +245,7 @@ function carregarAnimal(chave, variacao = null, nomeVariacao = null) {
     const videoSelecionado = variacao !== null
         ? (animal.videosPorEspecie?.[variacao] || '')
         : animal.video;
-    const temVideo = renderizarVideo(videoSelecionado, nomeVariacao || animal.nome || 'espécie');
+    const temVideo = renderizarVideo(videoSelecionado, nomeVariacao || animal.nome || ESPECIES_UI.especie);
     renderizarIntroducao(animal);
 
     const temTecnica = renderizarTecnica(animal);
